@@ -1,23 +1,25 @@
-﻿using static WeaponThread.WeaponStructure.WeaponDefinition;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AmmoEjectionDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AmmoEjectionDef.SpawnType;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.ShapeDef.Shapes;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.TrajectoryDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.TrajectoryDef.GuidanceType;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.DamageScaleDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.DamageScaleDef.ShieldDef.ShieldType;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AreaDamageDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AreaDamageDef.EwarFieldsDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AreaDamageDef.EwarFieldsDef.PushPullDef.Force;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.AreaDamageDef.AreaEffectType;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef.LineDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef.LineDef.Texture;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AmmoDef.GraphicDef.LineDef.TracerBaseDef;
-namespace WeaponThread
+﻿using static Scripts.Structure.WeaponDefinition;
+using static Scripts.Structure.WeaponDefinition.AmmoDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.EjectionDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.EjectionDef.SpawnType;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.ShapeDef.Shapes;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.GraphicDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.TrajectoryDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.TrajectoryDef.GuidanceType;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.DamageScaleDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.DamageScaleDef.ShieldDef.ShieldType;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.AreaDamageDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.AreaDamageDef.AreaEffectType;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.AreaDamageDef.EwarFieldsDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.AreaDamageDef.EwarFieldsDef.PushPullDef.Force;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.GraphicDef.LineDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.GraphicDef.LineDef.TracerBaseDef;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.GraphicDef.LineDef.Texture;
+using static Scripts.Structure.WeaponDefinition.AmmoDef.DamageScaleDef.DamageTypes.Damage;
+
+namespace Scripts
 { // Don't edit above this line
-    partial class Weapons
+    partial class Parts
     {
         private AmmoDef Lancer50standard => new AmmoDef
         {
