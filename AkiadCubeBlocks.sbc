@@ -1,0 +1,3627 @@
+﻿<?xml version="1.0" ?>
+<Definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<CubeBlocks>
+		<!-- Lancer -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>LancerStaticGun</SubtypeId>
+			</Id>
+			<DisplayName>Lancer Burst Cannon</DisplayName>
+			<Description>A quad-barrel burst cannon capable of using multiple ammo types in short and medium range engagements.
+			Range: 5km
+			Requires: 50mm Ammo Containers or 50mm Armor Piercing Ammo Containers.
+			Speed Ammo: 400m/s or 700m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\LancerStaticGun.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="6"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="0" z="4"/>
+			<Model>Models\Akiad\Small\LancerBase.mwm</Model>
+			<Components>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="4" Subtype="SmallTube"/>
+				<Component Count="4" Subtype="Computer"/>
+				<Component Count="2" Subtype="MetalGrid"/>
+				<Component Count="2" Subtype="Construction"/>
+				<Component Count="4" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="4.0" EndX="1.0" EndY="5.0" Default="true"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\LancerBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\LancerBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\LancerBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Halberd Right -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>HalberdRight</SubtypeId>
+			</Id>
+			<DisplayName>Halberd Gatling Gun Right</DisplayName>
+			<Description>A belt-fed rapid fire gatling gun with a small capacity but heavy damage potential.
+			Requires: Flak Belts.
+			Speed Ammo: 400m/s 
+			</Description>
+			<Icon>Textures\GUI\Icons\HalberdRight.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="2" y="2" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="1" z="4"/>
+			<Model>Models\Akiad\Small\HalberdRight.mwm</Model>
+			<Components>
+				<Component Count="2" Subtype="SteelPlate"/>
+				<Component Count="2" Subtype="Motor"/>
+				<Component Count="1" Subtype="LargeTube"/>
+				<Component Count="4" Subtype="Computer"/>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="1" Subtype="Construction"/>
+				<Component Count="3" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Right" StartX="0.0" StartY="1.0" EndX="1.0" EndY="2.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound=".33" File="Models\Akiad\Small\HalberdRight_BS1.mwm"/>
+				<Model BuildPercentUpperBound=".6" File="Models\Akiad\Small\HalberdRight_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1" File="Models\Akiad\Small\HalberdRight_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<BlockPairName>HalberdGatlingRight</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>15</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Halberd Left -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>HalberdLeft</SubtypeId>
+			</Id>
+			<DisplayName>Halberd Gatling Gun Left</DisplayName>
+			<Description>A belt-fed rapid fire gatling gun with a small capacity but heavy damage potential.
+			Requires: Flak Belts
+			Speed Ammo: 400m/s 
+			</Description>
+			<Icon>Textures\GUI\Icons\HalberdRight.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="2" y="2" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="1" z="4"/>
+			<Model>Models\Akiad\Small\HalberdLeft.mwm</Model>
+			<Components>
+				<Component Count="2" Subtype="SteelPlate"/>
+				<Component Count="2" Subtype="Motor"/>
+				<Component Count="1" Subtype="LargeTube"/>
+				<Component Count="4" Subtype="Computer"/>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="1" Subtype="Construction"/>
+				<Component Count="3" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Left" StartX="4.0" StartY="1.0" EndX="5.0" EndY="2.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound=".33" File="Models\Akiad\Small\HalberdLeft_BS1.mwm"/>
+				<Model BuildPercentUpperBound=".6" File="Models\Akiad\Small\HalberdLeft_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1" File="Models\Akiad\Small\HalberdLeft_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<BlockPairName>HalberdGatlingLeft</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>15</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Receptor -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>ReceptorCoilGun</SubtypeId>
+			</Id>
+			<DisplayName>Receptor Plasma Launcher</DisplayName>
+			<Description>Fires a slow-moving lob of superheated plasma that detonates on impact.
+			Range: 3km
+			</Description>
+			<Icon>Textures\GUI\Icons\ReceptorCoilGun.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="6"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="0" z="3"/>
+			<Model>Models\Akiad\Small\ReceptorCoilGun.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="4" Subtype="Construction"/>
+				<Component Count="2" Subtype="PowerCell"/>
+				<Component Count="12" Subtype="Computer"/>
+				<Component Count="2" Subtype="SmallTube"/>
+				<Component Count="2" Subtype="Motor"/>
+				<Component Count="2" Subtype="Superconductor"/>
+				<Component Count="4" Subtype="PowerCell"/>
+				<Component Count="6" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="3" EndX="1.0" EndY="4"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\ReceptorCoilGun_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\ReceptorCoilGun_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\ReceptorCoilGun_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>100</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Chimera -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>Chimera</SubtypeId>
+			</Id>
+			<DisplayName>Chimera Heavy Flamer</DisplayName>
+			<Description>Fires a steady stream of fire to eliminate all biological material in its path.
+			Range: 200m
+			Requires: Chimera Tanks
+			</Description>
+			<Icon>Textures\GUI\Icons\ChimeraBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="0" z="4"/>
+			<Model>Models\Akiad\Small\ChimeraBase.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="4" Subtype="Construction"/>
+				<Component Count="2" Subtype="PowerCell"/>
+				<Component Count="2" Subtype="SmallTube"/>
+				<Component Count="12" Subtype="Computer"/>
+				<Component Count="2" Subtype="Motor"/>
+				<Component Count="2" Subtype="Superconductor"/>
+				<Component Count="4" Subtype="PowerCell"/>
+				<Component Count="6" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+				<MountPoint Side="Left" StartX="4.0" StartY="0.0" EndX="5.0" EndY="1"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="4.0" EndX="1.0" EndY="5.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Akiad\Small\ChimeraBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.66" File="Models\Akiad\Small\ChimeraBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\ChimeraBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>100</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Chimera Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>ChimeraTurret</SubtypeId>
+			</Id>
+			<DisplayName>Chimera Heavy Flamer Turret</DisplayName>
+			<Description>Fires a steady stream of fire to eliminate all biological material in its path.
+			Range: 200m
+			Requires: Chimera Tanks</Description>
+			<Icon>Textures\GUI\Icons\ChimeraTurretBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="5" y="5" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="2" y="0" z="2"/>
+			<Model>Models\Akiad\Small\ChimeraTurretBase.mwm</Model>
+			<Components>
+				<Component Count="8" Subtype="Motor"/>
+				<Component Count="8" Subtype="LargeTube"/>
+				<Component Count="2" Subtype="Superconductor"/>
+				<Component Count="16" Subtype="Computer"/>
+				<Component Count="4" Subtype="PowerCell"/>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="50" Subtype="Construction"/>
+				<Component Count="20" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.00" EndX="5" EndY="5" Default="true"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Front" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\SaberTurretBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\SaberTurretBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\SaberTurretBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+        <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>ChimeraTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="ChimeraTurret" />
+      <InventoryMaxVolume>0.12</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+	    <!-- JSTR -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>JSTR</SubtypeId>
+			</Id>
+			<DisplayName>JSTR Launcher</DisplayName>
+			<Description>Meant as an all-purpose replacement for the standard Reloadable Rocket Launcher, the JSTR fires four fast-traveling rockets that work as anti-personelle and grids alike.
+			Range: 5km
+			Requires: 200mm JSTR Rocket Bundles.
+			</Description>
+			<Icon>Textures\GUI\Icons\JSTR.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\JSTR.mwm</Model>
+			<Components>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="4" Subtype="LargeTube"/>
+				<Component Count="2" Subtype="MetalGrid"/>
+				<Component Count="4" Subtype="Computer"/>
+				<Component Count="2" Subtype="Construction"/>
+				<Component Count="4" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="2.0" EndX="1.0" EndY="3.0" Default="true"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="5.0" EndY="1.0" Default="true"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="5.0" EndY="1.0" Default="true"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\JSTR_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\JSTR_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\JSTR_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Centurion -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>Centurion</SubtypeId>
+			</Id>
+			<DisplayName>Centurion Howitizer</DisplayName>
+			<Description>A long range artillery cannon meant to decimate targets from afar.
+			Range: 5km
+			Speed Ammo: 800m/s
+			Requires: Centurion HE Shells.
+			</Description>
+			<Icon>Textures\GUI\Icons\CenturianBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="2" z="12"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="1" z="11"/>
+			<Model>Models\Akiad\Small\CenturianBase.mwm</Model>
+			<Components>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="4" Subtype="LargeTube"/>
+				<Component Count="4" Subtype="Computer"/>
+				<Component Count="2" Subtype="MetalGrid"/>
+				<Component Count="2" Subtype="Construction"/>
+				<Component Count="4" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0.0" StartY="1.0" EndX="1.0" EndY="2.0"/>
+				<MountPoint Side="Left" StartX="8.0" StartY="0.0" EndX="12.0" EndY="2.0"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="4.0" EndY="2.0"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="1.0" EndY="3.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\CenturianBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\CenturianBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\CenturianBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Saber -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>SaberTwin</SubtypeId>
+			</Id>
+			<DisplayName>Saber Twin Barrel</DisplayName>
+			<Description>A dual barrel cannon with high accuracy for precise long range engagements.
+			Range: 5km
+			Requires: 50mm Armor Piercing.
+			Speed Ammo: 700m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\SaberBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="6"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="0" z="5"/>
+			<Model>Models\Akiad\Small\SaberBase.mwm</Model>
+			<Components>
+				<Component Count="2" Subtype="SteelPlate"/>
+				<Component Count="15" Subtype="Construction"/>
+				<Component Count="2" Subtype="SmallTube"/>
+				<Component Count="2" Subtype="Computer"/>
+				<Component Count="4" Subtype="Motor"/>
+				<Component Count="4" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+				<MountPoint Side="Left" StartX="5.0" StartY="0.0" EndX="6.0" EndY="1.0"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="5.0" EndX="1.0" EndY="6.0" Default="true"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\SaberBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\SaberBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\SaberBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Sigma -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>Sigma11Launcher</SubtypeId>
+			</Id>
+			<DisplayName>SIGMA-11 Hellfire Launcher Array</DisplayName>
+			<Description>An unguided, eleven barrel launcher armed with 200mm high explosive ordinance. What this launcher lacks in accuracy and range it makes up for in destructive capability.
+			Range: 5km
+			Requires: 200mm Sigma Rocket Bundles.
+			</Description>
+			<Icon>Textures\GUI\Icons\Sigma11Launcher.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="1" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="1" y="0" z="1"/>
+			<Model>Models\Akiad\Small\SigmaLauncher.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="SteelPlate"/>
+				<Component Count="10" Subtype="Construction"/>
+				<Component Count="11" Subtype="LargeTube"/>
+				<Component Count="11" Subtype="Computer"/>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="2" Subtype="MetalGrid"/>
+				<Component Count="6" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Top" StartX="1.0" StartY="1.0" EndX="2.0" EndY="2.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="1.0" EndX="3.0" EndY="2.0" Default="true"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\Sigma11Launcher_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\Sigma11Launcher_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\Sigma11Launcher_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Ares Left -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>AresLauncherLeft</SubtypeId>
+			</Id>
+			<DisplayName>Ares Launcher Left</DisplayName>
+			<Description>An offset, 5 barrel freefire launcher used for heavy shelling and artillery strikes.
+			Range: 5km
+			Requires: 400mm Ares HE Rocket Bundles.
+			</Description>
+			<Icon>Textures\GUI\Icons\AresLauncherRight.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="0" z="1"/>
+			<Model>Models\Akiad\Small\AresLauncherLeft.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="SteelPlate"/>
+				<Component Count="10" Subtype="Construction"/>
+				<Component Count="11" Subtype="LargeTube"/>
+				<Component Count="11" Subtype="Computer"/>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="2" Subtype="MetalGrid"/>
+				<Component Count="6" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Right" StartX="1.0" StartY="0.0" EndX="2.0" EndY="1.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\AresLauncherLeft_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\AresLauncherLeft_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\AresLauncherLeft_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Cyclone -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>CycloneBombBay</SubtypeId>
+			</Id>
+			<DisplayName>Scylla Bomb Bay</DisplayName>
+			<Description>Built to carry Scylla Compressed Plasma Warheads, this bay utilizes minimal thrust in order to conserve space for ordinance. Only works effectively in gravity wells.
+			Requires Scylla CPW.
+			</Description>
+			<Icon>Textures\GUI\Icons\CycloneBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="4" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\CycloneBase.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="SteelPlate"/>
+				<Component Count="10" Subtype="Construction"/>
+				<Component Count="11" Subtype="LargeTube"/>
+				<Component Count="20" Subtype="Computer"/>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="12" Subtype="MetalGrid"/>
+				<Component Count="6" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0.0" StartY="2.0" EndX="3.0" EndY="4.0"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="3.0" EndY="4.0" Default="true"/>
+				<MountPoint Side="Back" StartX="0.0" StartY="2.0" EndX="3.0" EndY="4.0"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="2.0" EndX="5.0" EndY="4.0"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="2.0" EndX="5.0" EndY="4.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\CycloneBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\CycloneBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\CycloneBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Crusader -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>CrusaderTube</SubtypeId>
+			</Id>
+			<DisplayName>Crusader Heavy Missile Tube</DisplayName>
+			<Description>Carrys one large Crusader Missile, meant to target bases and capital ships from range.
+			Range: 6km
+			Requires: Crusader Missile.
+			</Description>
+			<Icon>Textures\GUI\Icons\CrusaderTube.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="13"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="1" y="1" z="11"/>
+			<Model>Models\Akiad\Small\CrusaderTube.mwm</Model>
+			<Components>
+				<Component Count="40" Subtype="SteelPlate"/>
+				<Component Count="150" Subtype="Construction"/>
+				<Component Count="11" Subtype="LargeTube"/>
+				<Component Count="10" Subtype="Motor"/>
+				<Component Count="80" Subtype="Computer"/>
+				<Component Count="12" Subtype="MetalGrid"/>
+				<Component Count="60" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="3.0" EndY="3.0" Default="true"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="13.0" EndY="3.0" PressurizedWhenOpen="true"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="13.0" EndY="3.0" PressurizedWhenOpen="true"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="3.0" EndY="13.0" PressurizedWhenOpen="true"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="3.0" EndY="13.0" PressurizedWhenOpen="true"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\CrusaderTube_BS1.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BlockPairName>CrusaderTube</BlockPairName>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>3000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>	
+		<!-- Crusader Open -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>CrusaderLauncherOpen</SubtypeId>
+			</Id>
+			<DisplayName>Crusader Heavy Missile Open Launcher</DisplayName>
+			<Description>Carrys one large Crusader Missile, meant to target bases and capital ships from range.
+			Must be manually loaded.
+			Range: 6km
+			Requires: Crusader Missile.
+			</Description>
+			<Icon>Textures\GUI\Icons\CrusaderLauncherOpen.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="13"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="1" y="0" z="11"/>
+			<Model>Models\Akiad\Small\CrusaderLauncherOpen.mwm</Model>
+			<Components>
+				<Component Count="40" Subtype="SteelPlate"/>
+				<Component Count="100" Subtype="Construction"/>
+				<Component Count="11" Subtype="LargeTube"/>
+				<Component Count="2" Subtype="Motor"/>
+				<Component Count="12" Subtype="MetalGrid"/>
+				<Component Count="20" Subtype="Computer"/>
+				<Component Count="60" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="13.0" EndY="1.0"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="13.0" EndY="1.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="3.0" EndY="13.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Akiad\Small\CrusaderLauncherOpen_BS1.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\CrusaderLauncherOpen_BS2.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>3000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Crusader Open Static-->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>CrusaderLauncherOpenStatic</SubtypeId>
+			</Id>
+			<DisplayName>Crusader Heavy Missile Open Launcher (Static)</DisplayName>
+			<Description>Carrys one large Crusader Missile, meant to target bases and capital ships from range.
+			Must be manually loaded.
+			Range: 6km
+			Requires: Crusader Missile.
+			</Description>
+			<Icon>Textures\GUI\Icons\CrusaderLauncherOpenStatic.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="12"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="1" y="0" z="10"/>
+			<Model>Models\Akiad\Small\CrusaderLauncherOpenStatic.mwm</Model>
+			<Components>
+				<Component Count="40" Subtype="SteelPlate"/>
+				<Component Count="100" Subtype="Construction"/>
+				<Component Count="11" Subtype="LargeTube"/>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="12" Subtype="MetalGrid"/>
+				<Component Count="20" Subtype="Computer"/>
+				<Component Count="60" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="1.0" StartY="8" EndX="2.0" EndY="9" Default="true"/>
+				<MountPoint Side="Bottom" StartX="1.0" StartY="10" EndX="2.0" EndY="11" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Akiad\Small\CrusaderLauncherOpenStatic_BS1.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\CrusaderLauncherOpenStatic_BS2.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>3000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Charybdis -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>CharybdisBombBay</SubtypeId>
+			</Id>
+			<DisplayName>Charybdis Bomb Bay</DisplayName>
+			<Description>Fires Charybdis Plasma Torpedoes in quick succession in order to decimate targets from afar.
+			Requires: Charybdis Torpedo Stacks.
+			</Description>
+			<Icon>Textures\GUI\Icons\CharybdisBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="5" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\CharybdisBase.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="SteelPlate"/>
+				<Component Count="10" Subtype="Construction"/>
+				<Component Count="11" Subtype="LargeTube"/>
+				<Component Count="30" Subtype="Computer"/>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="8" Subtype="MetalGrid"/>
+				<Component Count="6" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="3.0" EndY="5.0" />
+				<MountPoint Side="Left" StartX="2.0" StartY="0.0" EndX="3.0" EndY="5"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="1.0" EndY="5"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="3.0" EndY="1.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="2.0" EndX="3.0" EndY="3.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\CharybdisBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\CharybdisBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\CharybdisBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Ares Right -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>AresLauncherRight</SubtypeId>
+			</Id>
+			<DisplayName>Ares Launcher Right</DisplayName>
+			<Description>An offset, 5 barrel freefire launcher used for heavy shelling and artillery strikes.
+			Range: 5km
+			Requires: 400mm Ares HE Rocket Bundles.
+			</Description>
+			<Icon>Textures\GUI\Icons\AresLauncherRight.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="0" z="1"/>
+			<Model>Models\Akiad\Small\AresLauncherRight.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="SteelPlate"/>
+				<Component Count="10" Subtype="Construction"/>
+				<Component Count="11" Subtype="LargeTube"/>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="2" Subtype="MetalGrid"/>
+				<Component Count="30" Subtype="Computer"/>
+				<Component Count="6" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Left" StartX="1.0" StartY="0.0" EndX="2.0" EndY="1.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\AresLauncherRight_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\AresLauncherRight_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\AresLauncherRight_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Kraken Static -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>KrakenStatic</SubtypeId>
+			</Id>
+			<DisplayName>Hydra ATGM (Static)</DisplayName>
+			<Description>Fires devasting guided ATGM missiles for long range engagements.
+			Range: 5km
+			Requires: 188mm Hydra Missile Bundles.
+			</Description>
+			<Icon>Textures\GUI\Icons\KrakenStatic.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\KrakenStatic.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="SteelPlate"/>
+				<Component Count="10" Subtype="Construction"/>
+				<Component Count="11" Subtype="LargeTube"/>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="2" Subtype="MetalGrid"/>
+				<Component Count="30" Subtype="Computer"/>
+				<Component Count="6" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="1.0" StartY="1.0" EndX="2.0" EndY="2.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\KrakenStatic_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\KrakenStatic_BS1.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\KrakenStatic_BS1.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Glaive Static -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>NovaCannon</SubtypeId>
+			</Id>
+			<DisplayName>Glaive Heavy Cannon</DisplayName>
+			<Description>Capable of firing devastating HEAT rounds, the Glaive Heavy Cannon rips through armor and decimates targets at all ranges.
+			Range: 5km
+			Requires: 88mm HEAT rounds.
+			Speed Ammo: 400m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\NovaCannon.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="0" z="4"/>
+			<Model>Models\Akiad\Small\NovaBase.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="SteelPlate"/>
+				<Component Count="8" Subtype="Construction"/>
+				<Component Count="4" Subtype="SmallTube"/>
+				<Component Count="3" Subtype="Motor"/>
+				<Component Count="2" Subtype="MetalGrid"/>
+				<Component Count="30" Subtype="Computer"/>
+				<Component Count="4" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+				<MountPoint Side="Left" StartX="4.0" StartY="0.0" EndX="5.0" EndY="1.0"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="4.0" EndX="1.0" EndY="5.0" Default="true"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\NovaBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\NovaBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\NovaBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Thresher Single -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>ThresherTube</SubtypeId>
+			</Id>
+			<DisplayName>Thresher Single Missile Pod</DisplayName>
+			<Description>A highly versatile launcher capable of firing multiple types of guided warheads.
+			Range: 5km
+			Requires: Thresher Missiles or Thresher MIRVs
+			</Description>
+			<Icon>Textures\GUI\Icons\ThresherTube.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\ThresherTube.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="SteelPlate"/>
+				<Component Count="6" Subtype="Construction"/>
+				<Component Count="1" Subtype="LargeTube"/>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="2" Subtype="Computer"/>
+				<Component Count="6" Subtype="SteelPlate"/>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="2" Subtype="SmallTube"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="1.0" EndY="3.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="1.0" EndY="3.0" Default="true"/>
+				<MountPoint Side="Right" StartX="1.0" StartY="0.0" EndX="2.0" EndY="1.0"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="3.0" EndY="1.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\ThresherTube_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\ThresherTube_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\ThresherTube_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Thresher Double -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>ThresherLauncher</SubtypeId>
+			</Id>
+			<DisplayName>Thresher Dual Missile Pod</DisplayName>
+			<Description>A highly versatile launcher capable of firing multiple types of guided warheads.
+			Range: 5km
+			Requires: Thresher Missiles or Thresher MIRVs
+			</Description>
+			<Icon>Textures\GUI\Icons\Thresher.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="2" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\Thresher.mwm</Model>
+			<Components>
+				<Component Count="8" Subtype="SteelPlate"/>
+				<Component Count="6" Subtype="Construction"/>
+				<Component Count="2" Subtype="LargeTube"/>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="2" Subtype="Computer"/>
+				<Component Count="6" Subtype="SteelPlate"/>
+				<Component Count="8" Subtype="MetalGrid"/>
+				<Component Count="2" Subtype="SmallTube"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="1.0" EndY="3.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="1.0" EndY="3.0" Default="true"/>
+				<MountPoint Side="Right" StartX="1.0" StartY="0.0" EndX="2.0" EndY="2.0"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="3.0" EndY="2.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\Thresher_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\Thresher_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\Thresher_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Thresher Quad -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>ThresherDouble</SubtypeId>
+			</Id>
+			<DisplayName>Thresher Dual Stacked Missile Pod</DisplayName>
+			<Description>A highly versatile launcher capable of firing multiple types of guided warheads.
+			Range: 5km
+			Requires: Thresher Missiles or Thresher MIRVs
+			</Description>
+			<Icon>Textures\GUI\Icons\ThresherDouble.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="2" y="2" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\ThresherDouble.mwm</Model>
+			<Components>
+				<Component Count="10" Subtype="SteelPlate"/>
+				<Component Count="6" Subtype="Construction"/>
+				<Component Count="4" Subtype="LargeTube"/>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="2" Subtype="Computer"/>
+				<Component Count="6" Subtype="SteelPlate"/>
+				<Component Count="12" Subtype="MetalGrid"/>
+				<Component Count="2" Subtype="SmallTube"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="2.0" EndY="3.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="2.0" EndY="3.0" Default="true"/>
+				<MountPoint Side="Right" StartX="1.0" StartY="0.0" EndX="2.0" EndY="2.0"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="3.0" EndY="2.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\Thresher_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\Thresher_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\Thresher_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Raptor Gatling -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>RaptorGatling</SubtypeId>
+			</Id>
+			<DisplayName>Raptor Gatling</DisplayName>
+			<Description>With a fire rate of over 5 rounds per second and a large drum magazine, this weapon is devastating for close air support and gun runs.
+			Range: 5km
+			Requires: 1000x30mm Ammo Containers
+			Speed Ammo: 700m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\RaptorGatling.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="15"/>
+			<Center x="1" y="0" z="13"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\RaptorBase.mwm</Model>
+			<Components>
+				<Component Count="20" Subtype="SteelPlate"/>
+				<Component Count="6" Subtype="Construction"/>
+				<Component Count="1" Subtype="LargeTube"/>
+				<Component Count="8" Subtype="Motor"/>
+				<Component Count="2" Subtype="Computer"/>
+				<Component Count="6" Subtype="SteelPlate"/>
+				<Component Count="2" Subtype="MetalGrid"/>
+				<Component Count="8" Subtype="SmallTube"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="9" EndX="3.0" EndY="15"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\RaptorArmored30_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\RaptorArmored30_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\RaptorArmored30_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Raptor 45° -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>RaptorGatlingArmored45</SubtypeId>
+			</Id>
+			<DisplayName>Raptor Gatling (Armored 45°)</DisplayName>
+			<Description>With a fire rate of over 5 rounds per second and a large drum magazine, this weapon is devastating for close air support and gun runs.
+			Range: 5km
+			Requires: 1000x30mm Ammo Containers
+			Speed Ammo: 700m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\RaptorArmored45.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="15"/>
+			<Center x="1" y="0" z="13"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\RaptorArmored45.mwm</Model>
+			<Components>
+				<Component Count="20" Subtype="SteelPlate"/>
+				<Component Count="6" Subtype="Construction"/>
+				<Component Count="1" Subtype="LargeTube"/>
+				<Component Count="8" Subtype="Motor"/>
+				<Component Count="2" Subtype="Computer"/>
+				<Component Count="60" Subtype="SteelPlate"/>
+				<Component Count="6" Subtype="MetalGrid"/>
+				<Component Count="8" Subtype="SmallTube"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Left" StartX="5.0" StartY="0.0" EndX="10.0" EndY="3.0"/>
+				<MountPoint Side="Right" StartX="5.0" StartY="0.0" EndX="10.0" EndY="3.0"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="5.0" EndX="3.0" EndY="10.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="2.0" EndX="3.0" EndY="15.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\RaptorArmored30_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\RaptorArmored30_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\RaptorArmored30_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Raptor 30 -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>RaptorGatlingArmored30</SubtypeId>
+			</Id>
+			<DisplayName>Raptor Gatling (Armored 30°)</DisplayName>
+			<Description>With a fire rate of over 5 rounds per second and a large drum magazine, this weapon is devastating for close air support and gun runs.
+			Range: 5km
+			Requires: 1000x30mm Ammo Containers
+			Speed Ammo: 700m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\RaptorArmored30.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="15"/>
+			<Center x="1" y="0" z="13"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\RaptorArmored30.mwm</Model>
+			<Components>
+				<Component Count="20" Subtype="SteelPlate"/>
+				<Component Count="6" Subtype="Construction"/>
+				<Component Count="1" Subtype="LargeTube"/>
+				<Component Count="8" Subtype="Motor"/>
+				<Component Count="2" Subtype="Computer"/>
+				<Component Count="60" Subtype="SteelPlate"/>
+				<Component Count="6" Subtype="MetalGrid"/>
+				<Component Count="8" Subtype="SmallTube"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Left" StartX="5.0" StartY="0.0" EndX="10.0" EndY="3.0"/>
+				<MountPoint Side="Right" StartX="5.0" StartY="0.0" EndX="10.0" EndY="3.0"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="5.0" EndX="3.0" EndY="10.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="2.0" EndX="3.0" EndY="15.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\RaptorArmored30_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\RaptorArmored30_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\RaptorArmored30_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>1000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Laser Designator -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>LaserDesignator</SubtypeId>
+			</Id>
+			<DisplayName>Laser Designator</DisplayName>
+			<Description>Fires a small beam for locking on to targets, guiding missiles, or alignment.
+			Range: 5km
+			</Description>
+			<Icon>Textures\GUI\Icons\LaserDesignator.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="2"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="0" z="1"/>
+			<Model>Models\Akiad\Small\LaserDesignator.mwm</Model>
+			<Components>
+				<Component Count="2" Subtype="SteelPlate"/>
+				<Component Count="4" Subtype="Construction"/>
+				<Component Count="1" Subtype="SmallTube"/>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="10" Subtype="Computer"/>
+				<Component Count="2" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+				<MountPoint Side="Left" StartX="1.0" StartY="0.0" EndX="2.0" EndY="1"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="1.0" EndX="1.0" EndY="2.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>100</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Bolt Cannon -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>BoltCannon</SubtypeId>
+			</Id>
+			<DisplayName>Broadsword Bolt Cannon</DisplayName>
+			<Description>A highly versatile energy weapon firing small bolts of plasma in quick succession.
+			Range: 4km
+			</Description>
+			<Icon>Textures\GUI\Icons\BoltCannonBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="3" z="9"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="1" z="7"/>
+			<Model>Models\Akiad\Small\BoltCannonBase.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="6" Subtype="Construction"/>
+				<Component Count="4" Subtype="PowerCell"/>
+				<Component Count="1" Subtype="LargeTube"/>
+				<Component Count="1" Subtype="Superconductor"/>
+				<Component Count="4" Subtype="PowerCell"/>
+				<Component Count="2" Subtype="Motor"/>
+				<Component Count="12" Subtype="Computer"/>
+				<Component Count="4" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0" StartY="1" EndX="1" EndY="2"/>
+				<MountPoint Side="Left" StartX="6" StartY="0" EndX="9" EndY="3"/>
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="3" EndY="3"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\BoltCannonBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\BoltCannonBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\BoltCannonBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>100</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Repeater -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>PlasmaRepeater</SubtypeId>
+			</Id>
+			<DisplayName>Arbalest Plasma Repeater</DisplayName>
+			<Description>A quick firing, low damage, and high heat capacity plasma cannon that excels in dogfights.
+			Range: 2km
+			</Description>
+			<Icon>Textures\GUI\Icons\PlasmaRepeater.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="5"/>
+			<Center x="0" y="0" z="4"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\PlasmaRepeater.mwm</Model>
+			<Components>
+				<Component Count="2" Subtype="MetalGrid"/>
+				<Component Count="6" Subtype="Construction"/>
+				<Component Count="2" Subtype="PowerCell"/>
+				<Component Count="1" Subtype="LargeTube"/>
+				<Component Count="2" Subtype="PowerCell"/>
+				<Component Count="2" Subtype="Motor"/>
+				<Component Count="6" Subtype="Computer"/>
+				<Component Count="4" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+				<MountPoint Side="Left" StartX="4.0" StartY="0.0" EndX="5.0" EndY="1"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="4.0" EndX="1.0" EndY="5.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\PlasmaRepeater_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\PlasmaRepeater_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\PlasmaRepeater_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>100</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Talon -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>HeavyPlasmaCannon</SubtypeId>
+			</Id>
+			<DisplayName>Talon Heavy Plasma Cannon</DisplayName>
+			<Description>With moderate fire rate and damage, the Talon serves as an effective main weapon platform for both atmospheric and zero-g engagements.
+			Range: 3.5km
+			</Description>
+			<Icon>Textures\GUI\Icons\HeavyPlasmaCannon.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="1" z="7"/>
+			<Center x="1" y="0" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\HeavyPlasmaCannon.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="35" Subtype="Construction"/>
+				<Component Count="4" Subtype="LargeTube"/>
+				<Component Count="16" Subtype="PowerCell"/>
+				<Component Count="2" Subtype="Motor"/>
+				<Component Count="6" Subtype="Computer"/>
+				<Component Count="20" Subtype="Superconductor"/>
+				<Component Count="30" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="3.0" EndY="1.0"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="3.0" EndY="3.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="4.0" EndX="3.0" EndY="7.0"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="3.0" EndY="1.0"/>
+				<MountPoint Side="Left" StartX="4.0" StartY="0.0" EndX="7.0" EndY="1.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\HeavyPlasmaCannon_BS1.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>100</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Icarus -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>IcarusAccelerator</SubtypeId>
+			</Id>
+			<DisplayName>Icarus Accelerator</DisplayName>
+			<Description>An evolution on the conventional railgun design; the Icarus fires a compressed, ultra-dense plasma rod that blasts through layers of armor with ease.
+			Range: 5km
+			</Description>
+			<Icon>Textures\GUI\Icons\IcarusAccelerator.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="13"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="1" y="0" z="11"/>
+			<Model>Models\Akiad\Small\IcarusAccelerator.mwm</Model>
+			<Components>
+				<Component Count="12" Subtype="MetalGrid"/>
+				<Component Count="40" Subtype="Construction"/>
+				<Component Count="20" Subtype="PowerCell"/>
+				<Component Count="10" Subtype="LargeTube"/>
+				<Component Count="40" Subtype="PowerCell"/>
+				<Component Count="2" Subtype="Motor"/>
+				<Component Count="60" Subtype="Computer"/>
+				<Component Count="20" Subtype="Superconductor"/>
+				<Component Count="40" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="3.0" EndY="3.0"/>
+				<MountPoint Side="Left" StartX="10.0" StartY="0.0" EndX="13.0" EndY="3"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="3.0" EndY="3"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="3.0" EndY="3.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="10.0" EndX="3.0" EndY="13.0" Default="true"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Akiad\Small\IcarusAccelerator_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.66" File="Models\Akiad\Small\IcarusAccelerator_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\IcarusAccelerator_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>15</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>100</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Typhon -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>TyphonAccelerator</SubtypeId>
+			</Id>
+			<DisplayName>Typhon Accelerator</DisplayName>
+			<Description>A compact railgun which sacrifices range and power for an increased rate of fire and higher heat capacity.
+			Range: 5km
+			</Description>
+			<Icon>Textures\GUI\Icons\MiniAccelerator.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="6"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="0" z="5"/>
+			<Model>Models\Akiad\Small\MiniAccelerator.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="20" Subtype="Construction"/>
+				<Component Count="15" Subtype="PowerCell"/>
+				<Component Count="4" Subtype="LargeTube"/>
+				<Component Count="20" Subtype="PowerCell"/>
+				<Component Count="2" Subtype="Motor"/>
+				<Component Count="60" Subtype="Computer"/>
+				<Component Count="14" Subtype="Superconductor"/>
+				<Component Count="4" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+				<MountPoint Side="Left" StartX="4.0" StartY="0.0" EndX="6.0" EndY="1"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="2.0" EndY="1"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="1.0" EndY="2.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="4.0" EndX="1.0" EndY="6.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Akiad\Small\MiniAccelerator_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.66" File="Models\Akiad\Small\MiniAccelerator_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\MiniAccelerator_BS3.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>15</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>100</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		<!-- Glaive Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>NovaTurret</SubtypeId>
+			</Id>
+			<DisplayName>Glaive Heavy Turret</DisplayName>
+			<Description>Capable of firing devastating HEAT rounds, the Glaive Heavy Cannon rips through armor and decimates targets at all ranges.
+			Range: 2.5km
+			Requires 88mm HEAT rounds
+			Speed Ammo: 400m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\NovaTurretBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="5" y="5" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="2" y="0" z="2"/>
+			<Model>Models\Akiad\Small\NovaTurretBase.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="Motor"/>
+				<Component Count="1" Subtype="LargeTube"/>
+				<Component Count="6" Subtype="MetalGrid"/>
+				<Component Count="10" Subtype="Computer"/>
+				<Component Count="30" Subtype="Construction"/>
+				<Component Count="20" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.00" EndX="5" EndY="5" Default="true"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Front" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\LancerTurretBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\LancerTurretBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\LancerTurretBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+			<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+			<StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>NovaTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="NovaTurret" />
+      <InventoryMaxVolume>1000</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+		<!-- Kraken Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>KrakenTurret</SubtypeId>
+			</Id>
+			<DisplayName>Hydra ATGM (Turret)</DisplayName>
+			<Description>Fires devasting guided ATGM missiles for long range engagements.
+			Range: 3km
+			Requires 188mm Hydra Missile Bundles.
+			</Description>
+			<Icon>Textures\GUI\Icons\KrakenTurretBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\KrakenTurretBase.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="Motor"/>
+				<Component Count="1" Subtype="LargeTube"/>
+				<Component Count="6" Subtype="MetalGrid"/>
+				<Component Count="10" Subtype="Computer"/>
+				<Component Count="30" Subtype="Construction"/>
+				<Component Count="20" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="1.0" StartY="1.0" EndX="2.0" EndY="2.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\KrakenStatic_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\KrakenStatic_BS1.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\KrakenStatic_BS1.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+			<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+			<StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>KrakenTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="KrakenTurret" />
+      <InventoryMaxVolume>1000</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+		<!-- Saber Turret -->	
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>SaberTurret</SubtypeId>
+			</Id>
+			<DisplayName>Saber Twin Turret</DisplayName>
+			<Description>A dual barrel cannon with high accuracy for precise long range engagements.
+			Range: 3km
+			Requires 12x50mm Armor Piercing
+			Speed Ammo: 700m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\SaberTurretBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="5" y="5" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="2" y="0" z="2"/>
+			<Model>Models\Akiad\Small\SaberTurretBase.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="Motor"/>
+				<Component Count="6" Subtype="SmallTube"/>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="10" Subtype="Computer"/>
+				<Component Count="30" Subtype="Construction"/>
+				<Component Count="15" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.00" EndX="5" EndY="5" Default="true"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Front" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\SaberTurretBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\SaberTurretBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\SaberTurretBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+        <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>SaberTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="SaberTurret" />
+      <InventoryMaxVolume>1000</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+		<!-- Lancer Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>LancerTurret</SubtypeId>
+			</Id>
+			<DisplayName>Lancer Turret</DisplayName>
+			<Description>A quad-barrel burst cannon capable of using multiple ammo types in short and medium range engagements placed on an automated mount.
+			Range: 2km
+			Requires: 24x50mm Ammo Containers or 12x50mm Armor Piercing.
+			Speed Ammo: 400m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\LancerTurretBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="5" y="5" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="2" y="0" z="2"/>
+			<Model>Models\Akiad\Small\LancerTurretBase.mwm</Model>
+			<Components>
+				<Component Count="4" Subtype="Motor"/>
+				<Component Count="4" Subtype="SmallTube"/>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="10" Subtype="Computer"/>
+				<Component Count="30" Subtype="Construction"/>
+				<Component Count="15" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.00" EndX="5" EndY="5" Default="true"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Front" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\LancerTurretBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\LancerTurretBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\LancerTurretBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+        <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName></BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="LancerTurret" />
+      <InventoryMaxVolume>1000</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+		<!-- Thresher Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>ThresherTurret</SubtypeId>
+			</Id>
+			<DisplayName>Thresher Dual Turret</DisplayName>
+			<Description>A highly versatile launcher capable of firing multiple types of guided warheads.
+			Range: 5km
+			Requires: Thresher Missiles or Thresher MIRVs
+			</Description>
+			<Icon>Textures\GUI\Icons\ThresherTurretBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="5" y="5" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="2" y="0" z="2"/>
+			<Model>Models\Akiad\Small\ThresherTurretBase.mwm</Model>
+			<Components>
+				<Component Count="8" Subtype="Motor"/>
+				<Component Count="8" Subtype="LargeTube"/>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="16" Subtype="Computer"/>
+				<Component Count="50" Subtype="Construction"/>
+				<Component Count="20" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.00" EndX="5" EndY="5" Default="true"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Front" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\ThresherTurretBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\ThresherTurretBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\ThresherTurretBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+        <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>ThresherTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="ThresherTurret" />
+      <InventoryMaxVolume>1000</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+		<!-- Repeater Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>PlasmaRepeaterTurret</SubtypeId>
+			</Id>
+			<DisplayName>Arbalest Plasma Repeater Turret</DisplayName>
+			<Description>A quick firing, low damage, and high heat capacity plasma cannon that excels in dogfights.
+			Range: 2km
+			</Description>
+			<Icon>Textures\GUI\Icons\PlasmaRepeaterTurret.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="5" y="5" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="2" y="0" z="2"/>
+			<Model>Models\Akiad\Small\PlasmaRepeaterTurretBase.mwm</Model>
+			<Components>
+				<Component Count="8" Subtype="Motor"/>
+				<Component Count="8" Subtype="LargeTube"/>
+				<Component Count="2" Subtype="PowerCell"/>
+				<Component Count="16" Subtype="Computer"/>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="50" Subtype="Construction"/>
+				<Component Count="20" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.00" EndX="5" EndY="5" Default="true"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Front" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\SaberTurretBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\SaberTurretBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\SaberTurretBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+        <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>PlasmaRepeaterTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="PlasmaRepeaterTurret" />
+      <InventoryMaxVolume>0.12</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+		<!-- Receptor Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>ReceptorTurret</SubtypeId>
+			</Id>
+			<DisplayName>Receptor Plasma Launcher Turret</DisplayName>
+			<Description>Fires a slow-moving lob of superheated plasma that detonates on impact.
+			Range: 3km
+			</Description>
+			<Icon>Textures\GUI\Icons\ReceptorTurretBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="5" y="5" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="2" y="0" z="2"/>
+			<Model>Models\Akiad\Small\ReceptorTurretBase.mwm</Model>
+			<Components>
+				<Component Count="8" Subtype="Motor"/>
+				<Component Count="8" Subtype="LargeTube"/>
+				<Component Count="2" Subtype="Superconductor"/>
+				<Component Count="4" Subtype="PowerCell"/>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="16" Subtype="Computer"/>
+				<Component Count="50" Subtype="Construction"/>
+				<Component Count="20" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.00" EndX="5" EndY="5" Default="true"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Front" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.00" EndX="5" EndY="1"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\SaberTurretBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\SaberTurretBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\SaberTurretBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+        <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>ReceptorTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="ReceptorTurret" />
+      <InventoryMaxVolume>0.12</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+	    <!-- Raptor Light Turret -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>RaptorLightTurret</SubtypeId>
+			</Id>
+			<DisplayName>Raptor Light Turret</DisplayName>
+			<Description>Sacrifices ROF for higher heat capacity and AI control.
+			Range: 3km
+			Speed Ammo: 700m/s
+			Requires: 1000x30mm Ammo Containers</Description>
+			<Icon>Textures\GUI\Icons\RaptorLightBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="5" z="7"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\RaptorLightBase.mwm</Model>
+			<Components>
+				<Component Count="8" Subtype="Motor"/>
+				<Component Count="8" Subtype="LargeTube"/>
+				<Component Count="2" Subtype="Superconductor"/>
+				<Component Count="4" Subtype="PowerCell"/>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="16" Subtype="Computer"/>
+				<Component Count="50" Subtype="Construction"/>
+				<Component Count="20" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="3.0" EndY="2.0" PressurizedWhenOpen="true"/>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="3.0" EndY="2.0" PressurizedWhenOpen="true"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="7.0" EndY="2.0" PressurizedWhenOpen="true"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="7.0" EndY="2.0" PressurizedWhenOpen="true"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="3.0" EndY="7.0" Default="true" PressurizedWhenOpen="true"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\RaptorLightBase_BS1.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+        <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>RaptorLightTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="RaptorLightTurret" />
+      <InventoryMaxVolume>0.12</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>	
+		<!-- Orion Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>OrionLauncher</SubtypeId>
+			</Id>
+			<DisplayName>Orion Launcher</DisplayName>
+			<Description>Fires compressed plasma orbs that are highly explosive.
+			Range: 3km
+			</Description>
+			<Icon>Textures\GUI\Icons\OrionBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="4" z="8"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="1" y="0" z="4"/>
+			<Model>Models\Akiad\Small\OrionBase.mwm</Model>
+			<Components>
+				<Component Count="8" Subtype="Motor"/>
+				<Component Count="8" Subtype="LargeTube"/>
+				<Component Count="2" Subtype="Superconductor"/>
+				<Component Count="4" Subtype="PowerCell"/>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="16" Subtype="Computer"/>
+				<Component Count="50" Subtype="Construction"/>
+				<Component Count="20" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Left" StartX="4.0" StartY="0.0" EndX="5.0" EndY="1.0"/>
+				<MountPoint Side="Right" StartX="3.0" StartY="0.0" EndX="4.0" EndY="1.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="4.0" EndX="3.0" EndY="5.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\OrionBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\OrionBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\OrionBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+        <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>OrionLauncher</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="OrionLauncher" />
+      <InventoryMaxVolume>0.12</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+		<!-- Laser Designator Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>LaserDesignatorTurret</SubtypeId>
+			</Id>
+			<DisplayName>Laser Designator Turret</DisplayName>
+			<Description>Fires a small beam for locking on to targets, guiding missiles, or alignment.
+			Range: 5km
+			</Description>
+			<Icon>Textures\GUI\Icons\LaserDesignatorTurretBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\LaserDesignatorTurretBase.mwm</Model>
+			<Components>
+				<Component Count="2" Subtype="SteelPlate"/>
+				<Component Count="4" Subtype="Construction"/>
+				<Component Count="1" Subtype="SmallTube"/>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="15" Subtype="Computer"/>
+				<Component Count="2" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="1.0" EndY="1.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1" File="Models\Akiad\Small\LaserDesignatorTurretBase_BS1.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+        <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>LaserDesignatorTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="LaserDesignatorTurret" />
+      <InventoryMaxVolume>0.12</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+		<!-- Lotus -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>Lotus</SubtypeId>
+			</Id>
+			<DisplayName>Lotus Net Active Mine Layer</DisplayName>
+			<Description>Propels small anti-projectile mines around an area in order to protect against missile attacks.
+			Range: 1.2k
+			</Description>
+			<Icon>Textures\GUI\Icons\LotusBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="5" y="3" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\LotusBase.mwm</Model>
+			<Components>
+				<Component Count="2" Subtype="SteelPlate"/>
+				<Component Count="4" Subtype="Construction"/>
+				<Component Count="1" Subtype="SmallTube"/>
+				<Component Count="1" Subtype="Motor"/>
+				<Component Count="15" Subtype="Computer"/>
+				<Component Count="2" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="3.0" StartY="0.0" EndX="4.0" EndY="3.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Akiad\Small\LotusBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.66" File="Models\Akiad\Small\LotusBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\LotusBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+        <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>Lotus</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="Lotus" />
+      <InventoryMaxVolume>0.12</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+	
+		<!-- Large Sentinel Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>SentinelTurret</SubtypeId>
+			</Id>
+			<DisplayName>Sentinel Turret</DisplayName>
+			<Description>A modified variant of the Raptor Gatling, the Sentinel is designed to secure bases and large capital ships from incoming projectiles.
+			Range: 3km
+			Requires: 30mm Raptor Ammo Containers
+			Speed Ammo: 700m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\SentinelTurretBase.png</Icon>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="2" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\SentinelTurretBase.mwm</Model>
+			<Components>
+				<Component Count="40" Subtype="Motor"/>
+				<Component Count="10" Subtype="TIER_TWO"/>
+				<Component Count="100" Subtype="LargeTube"/>
+				<Component Count="10" Subtype="LithiumPowerCell"/>
+				<Component Count="20" Subtype="MetalGrid"/>
+				<Component Count="10" Subtype="Computer"/>
+				<Component Count="30" Subtype="Construction"/>
+				<Component Count="20" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="1.0" StartY="1.0" EndX="2.0" EndY="2.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\SentinelTurretBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\SentinelTurretBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\SentinelTurretBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+			<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+			<StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>SentinelTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="SentinelTurret" />
+      <InventoryMaxVolume>1000</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+		<!-- Large Khopesh Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>KhopeshTurret</SubtypeId>
+			</Id>
+			<DisplayName>Khopesh Turret</DisplayName>
+			<Description>A highly accurate, fast firing defensive turret meant to engage incoming projectiles, fighters, and biologicals.
+			Range: 2.5km
+			Requires: 50mm Armor Piercing.
+			Speed Ammo: 700m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\KhopeshBase.png</Icon>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="2" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\KhopeshBase.mwm</Model>
+			<Components>
+				<Component Count="40" Subtype="Motor"/>
+				<Component Count="10" Subtype="LargeTube"/>
+				<Component Count="10" Subtype="TIER_TWO"/>
+				<Component Count="10" Subtype="Resistor"/>
+				<Component Count="20" Subtype="MetalGrid"/>
+				<Component Count="10" Subtype="Computer"/>
+				<Component Count="30" Subtype="Construction"/>
+				<Component Count="20" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="1.0" StartY="1.0" EndX="2.0" EndY="2.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\KhopeshBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\KhopeshBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\KhopeshBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+			<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+			<StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>KhopeshTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="KhopeshTurret" />
+      <InventoryMaxVolume>1000</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>2500</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+	
+		<!-- Small Sentinel Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>SmallSentinelTurret</SubtypeId>
+			</Id>
+			<DisplayName>Sentinel Turret</DisplayName>
+			<Description>A modified variant of the Raptor Gatling, the Sentinel is designed to secure bases and large capital ships from incoming projectiles.
+			Range: 2.5km
+			Requires 30mm Raptor Ammo Container
+			Speed Ammo: 700m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\SentinelTurretBase.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="5" y="10" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\SmallSentinelTurretBase.mwm</Model>
+			<Components>
+				<Component Count="80" Subtype="SteelPlate"/>
+				<Component Count="250" Subtype="Construction"/>
+				<Component Count="18" Subtype="LargeTube"/>
+				<Component Count="30" Subtype="Motor"/>
+				<Component Count="40" Subtype="MetalGrid"/>
+				<Component Count="100" Subtype="Computer"/>
+				<Component Count="300" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="5" EndY="5" Default="true"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\SmallSentinelTurretBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\SmallSentinelTurretBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\SmallSentinelTurretBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+			<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+			<StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>SentinelTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="SentinelTurret" />
+      <InventoryMaxVolume>1000</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+	
+		<!-- Large Interior Chimera Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>LargeInteriorChimeraTurret</SubtypeId>
+			</Id>
+			<DisplayName>Interior ChimeraTurret</DisplayName>
+			<Description>Fires a steady stream of fire to eliminate all biological material in its path.
+			Range: 200m
+			Requires: Chimera Tanks</Description>
+			<Icon>Textures\GUI\Icons\InteriorChimeraBase.png</Icon>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\InteriorChimeraBase.mwm</Model>
+			<Components>
+				<Component Count="8" Subtype="Motor"/>
+				<Component Count="8" Subtype="LargeTube"/>
+				<Component Count="8" Subtype="MediumCopperTube"/>
+				<Component Count="2" Subtype="Superconductor"/>
+				<Component Count="4" Subtype="PowerCell"/>
+				<Component Count="4" Subtype="MetalGrid"/>
+				<Component Count="16" Subtype="Computer"/>
+				<Component Count="50" Subtype="Construction"/>
+				<Component Count="20" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="1" EndY="1" Default="true"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\InteriorChimeraBase_BS1.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+			<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+			<StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>InteriorChimeraTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="InteriorChimeraTurret" />
+      <InventoryMaxVolume>1000</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+	
+		<!-- Large Cerberus Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>CerberusTurret</SubtypeId>
+			</Id>
+			<DisplayName>Cerberus Turret</DisplayName>
+			<Description>A three-barreled capital turret with integrated Centurian howitzers.
+			Range: 3km
+			Requires Cerberus HE Shell Stacks
+			Speed Ammo: 800m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\CerberusTurretBase.png</Icon>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="1" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\CerberusTurretBase.mwm</Model>
+			<Components>
+				<Component Count="80" Subtype="SteelPlate"/>
+				<Component Count="250" Subtype="Construction"/>
+				<Component Count="18" Subtype="Armament_Core"/>
+				<Component Count="18" Subtype="LargeCopperTube"/>
+				<Component Count="18" Subtype="CopperPlate"/>
+				<Component Count="30" Subtype="Motor"/>
+				<Component Count="40" Subtype="MetalGrid"/>
+				<Component Count="100" Subtype="Computer"/>
+				<Component Count="300" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="1.0" StartY="1.0" EndX="2.0" EndY="2.0" Default="true"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\CerberusTurretBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\CerberusTurretBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\CerberusTurretBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+			<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+			<StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>CerberusTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="CerberusTurret" />
+      <InventoryMaxVolume>1000</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+		<!-- Large Eris Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>ErisTurret</SubtypeId>
+			</Id>
+			<DisplayName>Eris Turret</DisplayName>
+			<Description>A multibarreled scatter-shot plasma cannon meant for direct large scale engagements.
+			Range: 3km
+			Speed Ammo: 800m/s
+			</Description>
+			<Icon>Textures\GUI\Icons\ErisBase.png</Icon>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="5" y="5" z="5"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\ErisBase.mwm</Model>
+			<Components>
+				<Component Count="80" Subtype="SteelPlate"/>
+				<Component Count="250" Subtype="Construction"/>
+				<Component Count="18" Subtype="LargeTube"/>
+				<Component Count="30" Subtype="Motor"/>
+				<Component Count="250" Subtype="Plutonium-Rods"/>
+				<Component Count="18" Subtype="CopperZincPlate"/>
+				<Component Count="30" Subtype="TIER_THREE"/>
+				<Component Count="40" Subtype="MetalGrid"/>
+				<Component Count="100" Subtype="Computer"/>
+				<Component Count="300" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="5.0" EndY="5.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\ErisBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\ErisBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\ErisBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+			<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+			<StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>ErisTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="ErisTurret" />
+      <InventoryMaxVolume>1000</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>5000</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+		
+		<!-- Skybreaker Turret -->
+		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+			<Id>
+				<TypeId>LargeMissileTurret</TypeId>
+				<SubtypeId>SkybreakerTurret</SubtypeId>
+			</Id>
+			<DisplayName>Skybreaker Orbital Defense Cannon</DisplayName>
+			<Description>Consumes a tremendous amount of energy in order to fire a continous stream of plasma.
+			Range: 6km
+			</Description>
+			<Icon>Textures\GUI\Icons\SkybreakerBase.png</Icon>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="15" y="26" z="15"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Akiad\Small\SkybreakerBase.mwm</Model>
+			<Components>
+				<Component Count="4000" Subtype="SteelPlate"/>
+				<Component Count="150" Subtype="Construction"/>
+				<Component Count="30" Subtype="LargeTube"/>
+				<Component Count="100" Subtype="Motor"/>
+				<Component Count="450" Subtype="MetalGrid"/>
+				<Component Count="1500" Subtype="LaserConstructionBoxS"/>
+				<Component Count="3000" Subtype="PulseCannonConstructionBoxS"/>
+				<Component Count="1000" Subtype="LaserConstructionBoxL"/>
+				<Component Count="50" Subtype="TIER_FOUR"/>
+				<Component Count="450" Subtype="MetalGrid"/>
+				<Component Count="1300" Subtype="Computer"/>
+				<Component Count="1000" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="15.0" EndY="1.0"/>
+				<MountPoint Side="Front" StartX="0.0" StartY="5.5" EndX="15.0" EndY="6.5"/>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="15.0" EndY="1.0"/>
+				<MountPoint Side="Back" StartX="0.0" StartY="5.5" EndX="15.0" EndY="6.5"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="15.0" EndY="1.0"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="5.5" EndX="15.0" EndY="6.5"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="15.0" EndY="1.0"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="5.5" EndX="15.0" EndY="6.5"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="15.0" EndY="15.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.4" File="Models\Akiad\Small\SkybreakerBase_BS1.mwm"/>
+				<Model BuildPercentUpperBound="0.7" File="Models\Akiad\Small\SkybreakerBase_BS2.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\SkybreakerBase_BS3.mwm"/>
+			</BuildProgressModels>
+			<VoxelPlacement>
+			<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+			<StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>SkybreakerTurret</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="SkybreakerTurret" />
+      <InventoryMaxVolume>1000</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>600</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>300</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
+    </Definition>
+		<!-- Large Crusader -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>CrusaderTubeLG</SubtypeId>
+			</Id>
+			<DisplayName>Crusader Heavy Missile Tube</DisplayName>
+			<Description>Carrys one large Crusader Missile, meant to target bases and capital ships from range.
+			Range: 5km
+			Requires: Crusader Missile.
+			</Description>
+			<Icon>Textures\GUI\Icons\CrusaderTubeLG.png</Icon>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="4"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="0" y="0" z="3"/>
+			<Model>Models\Akiad\Small\CrusaderTubeLG.mwm</Model>
+			<Components>
+				<Component Count="80" Subtype="SteelPlate"/>
+				<Component Count="250" Subtype="Construction"/>
+				<Component Count="18" Subtype="LargeTube"/>
+				<Component Count="38" Subtype="Armament_Core"/>
+				<Component Count="58" Subtype="LargeCopperTube"/>
+				<Component Count="98" Subtype="CopperPlate"/>
+				<Component Count="30" Subtype="Motor"/>
+				<Component Count="40" Subtype="MetalGrid"/>
+				<Component Count="100" Subtype="Computer"/>
+				<Component Count="300" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="1" EndY="1" Default="true"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="4" EndY="1" PressurizedWhenOpen="true"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="4" EndY="1" PressurizedWhenOpen="true"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="1" EndY="4" PressurizedWhenOpen="true"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="1" EndY="4" PressurizedWhenOpen="true"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\CrusaderTubeLG_BS1.mwm"/>
+				<Model BuildPercentUpperBound="1.0" File="Models\Akiad\Small\CrusaderTubeLG_BS2.mwm"/>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<WeaponDefinitionId Subtype="CrusaderTube" />
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>true</AiEnabled>
+			<BlockPairName>CrusaderTube</BlockPairName>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>3000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		
+		<!-- Large Arbiter -->
+		<Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
+			<Id>
+				<TypeId>ConveyorSorter</TypeId>
+				<SubtypeId>ArbiterTube</SubtypeId>
+			</Id>
+			<DisplayName>Arbiter Missile Silo</DisplayName>
+			<Description>Designed to carry one Annihilator-class Arbiter Missile, with an insane damage and AOE.
+			Range: 30km
+			Requires: Arbiter Missile.
+			</Description>
+			<Icon>Textures\GUI\Icons\ArbiterTube.png</Icon>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="13"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Center x="1" y="1" z="12"/>
+			<Model>Models\Akiad\Small\ArbiterTube.mwm</Model>
+			<Components>
+				<Component Count="4000" Subtype="SteelPlate"/>
+				<Component Count="150" Subtype="Construction"/>
+				<Component Count="30" Subtype="Enriched_Plutonium238"/>
+				<Component Count="150" Subtype="StrongCopperPlate"/>
+				<Component Count="30" Subtype="Transistor"/>
+				<Component Count="500" Subtype="Diode"/>
+				<Component Count="900" Subtype="Resistor"/>
+				<Component Count="9000" Subtype="ReinforcedPlate"/>
+				<Component Count="70" Subtype="TIER_FOUR"/>
+				<Component Count="100" Subtype="Motor"/>
+				<Component Count="450" Subtype="MetalGrid"/>
+				<Component Count="380" Subtype="Computer"/>
+				<Component Count="1000" Subtype="SteelPlate"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="3.0" EndY="3.0"/>
+				<MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="13.0" EndY="3"/>
+				<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="13.0" EndY="3"/>
+				<MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="3.0" EndY="13.0"/>
+				<MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="3.0" EndY="13.0"/>
+			</MountPoints>
+			<BuildProgressModels>
+			</BuildProgressModels>
+			<StaticMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0</MinAllowed>
+			</StaticMode>
+			<DynamicMode>
+			  <PlacementMode>OutsideVoxel</PlacementMode>
+			  <MaxAllowed>0.2</MaxAllowed>
+			  <MinAllowed>0.01</MinAllowed>
+			</DynamicMode>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<AiEnabled>false</AiEnabled>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<NavigationDefinition>Default</NavigationDefinition>
+			<ResourceSinkGroup>Defense</ResourceSinkGroup>
+			<InventoryMaxVolume>30000</InventoryMaxVolume>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+		</Definition>
+		
+	
+	</CubeBlocks>
+
+	<CategoryClasses>
+		<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+			<Id>
+				<TypeId>GuiBlockCategoryDefinition</TypeId>
+				<SubtypeId/>
+			</Id>
+			<DisplayName>Akiad Defense</DisplayName>
+			<Name>AkiadIndustries</Name>
+			<ItemIds>
+					<string>LancerStaticGun</string>
+					<string>Sigma11Launcher</string>
+					<string>AresLauncherLeft</string>
+					<string>AresLauncherRight</string>
+					<string>NovaCannon</string>
+					<string>SaberTwin</string>
+					<string>ReceptorCoilGun</string>
+					<string>OrionLauncher</string>
+					<string>HalberdLeft</string>
+					<string>HalberdRight</string>
+					<string>ThresherTube</string>
+					<string>ThresherLauncher</string>
+					<string>ThresherDouble</string>
+					<string>KrakenStatic</string>
+					<string>Lotus</string>
+					<string>CycloneBombBay</string>
+					<string>CharybdisBombBay</string>
+					<string>RaptorGatling</string>
+					<string>RaptorGatlingArmored</string>
+					<string>RaptorLightTurret</string>
+					<string>LaserDesignator</string>
+					<string>LaserDesignatorTurret</string>
+					<string>BoltCannon</string>
+					<string>IcarusAccelerator</string>
+					<string>TyphonAccelerator</string>
+					<string>HeavyPlasmaCannon</string>
+					<string>PlasmaRepeater</string>
+					<string>SaberTurret</string>
+					<string>LancerTurret</string>
+					<string>NovaTurret</string>
+					<string>ThresherTurret</string>
+					<string>PlasmaRepeaterTurret</string>
+					<string>ReceptorTurret</string>
+					<string>KrakenTurret</string>
+					<string>LancerTurret45</string>
+					<string>LancerTurret30</string>
+					<string>SaberTurret45</string>
+					<string>SaberTurret30</string>
+					<string>GlaiveTurret45</string>
+					<string>GlaiveTurret30</string>
+					<string>ThresherTurret45</string>
+					<string>ThresherTurret30</string>
+					<string>KrakenTurret45</string>
+					<string>KrakenTurret30</string>
+					<string>PlasmaRepeaterTurret45</string>
+					<string>PlasmaRepeaterTurret30</string>
+					<string>ReceptorTurret45</string>
+					<string>ReceptorTurret30</string>
+					<string>Chimera</string>
+					<string>ChimeraTurret</string>
+					<string>CrusaderTube</string>
+					<string>CrusaderLauncherOpen</string>
+					<string>CrusaderLauncherOpenStatic</string>
+					<string>JSTR</string>
+					<string>Centurion</string>
+					<string>SmallSentinelTurret</string>
+					<string>KhopeshTurret</string>
+					<string>SentinelTurret</string>
+					<string>CerberusTurret</string>
+					<string>CrusaderTubeLG</string>
+					<string>ArbiterTube</string>
+					<string>LargeInteriorChimeraTurret</string>
+					<string>SkybreakerTurret</string>
+					<string>ErisTurret</string>
+					
+			</ItemIds>
+		</Category>
+	</CategoryClasses>
+
+</Definitions>

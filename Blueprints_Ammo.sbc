@@ -1,0 +1,468 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Blueprints> 
+  
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Lancer50standard_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>50mm Ammo Container</DisplayName>
+      <Icon>Textures\GUI\Icons\24x50mm.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="20" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Magnesium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="Lancer50standard" />
+      <BaseProductionTimeInSeconds>50.00</BaseProductionTimeInSeconds>
+	  </Blueprint>
+	  
+	  <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>FlakBelt_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Flak Belt</DisplayName>
+      <Icon>Textures\GUI\Icons\FlakBelt.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="20" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="9" TypeId="Ingot" SubtypeId="Magnesium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FlakBelt" />
+      <BaseProductionTimeInSeconds>60.00</BaseProductionTimeInSeconds>
+	  </Blueprint>
+	  
+	  <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Raptor200x30_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>30mm Raptor Ammo Container</DisplayName>
+      <Icon>Textures\GUI\Icons\RaptorAmmoBox.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="20" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Magnesium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="Raptor200x30" />
+      <BaseProductionTimeInSeconds>50.00</BaseProductionTimeInSeconds>
+	  
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Lancer50AP_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>50mm Armor Piercing Ammo Container</DisplayName>
+      <Icon>Textures\GUI\Icons\12x50mm.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="35" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="6" TypeId="Ingot" SubtypeId="Magnesium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="Lancer50AP" />
+      <BaseProductionTimeInSeconds>25.00</BaseProductionTimeInSeconds>
+	  
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ThresherMissile_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Thresher Missile Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\ThresherBundle.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="120" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="12" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="1" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="1" TypeId="Ingot" SubtypeId="Uranium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="ThresherMissile" />
+      <BaseProductionTimeInSeconds>90.00</BaseProductionTimeInSeconds>
+	  </Blueprint>
+	  
+	  <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>LotusMissile_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Lotus Missile Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\LotusMissile.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="120" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="12" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="1" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="1" TypeId="Ingot" SubtypeId="Uranium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="LotusMissile" />
+      <BaseProductionTimeInSeconds>80.00</BaseProductionTimeInSeconds>
+	  </Blueprint>
+	  
+	  <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ThresherMIRV_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Thresher MIRV Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\ThresherBundle.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="120" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="20" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="1" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="1.25" TypeId="Ingot" SubtypeId="Uranium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="ThresherMIRV" />
+      <BaseProductionTimeInSeconds>150.00</BaseProductionTimeInSeconds>
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ThresherStunLock_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Thresher Stun-Lock Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\ThresherBundle.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="120" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="20" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="1.25" TypeId="Ingot" SubtypeId="Uranium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="ThresherStunLock" />
+      <BaseProductionTimeInSeconds>90.00</BaseProductionTimeInSeconds>
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CrusaderMissile_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Crusader Heavy Missile</DisplayName>
+      <Icon>Textures\GUI\Icons\CrusaderMissile.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="120" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="20" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="10" TypeId="Ingot" SubtypeId="Platinum" />
+		<Item Amount="30" TypeId="Ingot" SubtypeId="Uranium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="CrusaderMissile" />
+      <BaseProductionTimeInSeconds>50.00</BaseProductionTimeInSeconds>
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ThresherEMP_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Thresher EMP Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\ThresherBundle.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="120" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="15" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="30" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="1.25" TypeId="Ingot" SubtypeId="Uranium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="ThresherEMP" />
+      <BaseProductionTimeInSeconds>40.00</BaseProductionTimeInSeconds>
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Sigma400mmHE_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>200mm Sigma Rocket Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\Sigma11Rocket.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="200" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="40" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="1" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="1.5" TypeId="Ingot" SubtypeId="Uranium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="Sigma400mmHE" />
+      <BaseProductionTimeInSeconds>50.00</BaseProductionTimeInSeconds>
+
+	  
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>JSTR200mm_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>200mm JSTR Rocket Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\JSTRRocket.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="180" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="20" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="1" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="1" TypeId="Ingot" SubtypeId="Uranium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="JSTRRocket" />
+      <BaseProductionTimeInSeconds>50.00</BaseProductionTimeInSeconds>
+
+	  
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Nova88mmHEAT_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>88mm HEAT Ammo Container</DisplayName>
+      <Icon>Textures\GUI\Icons\88mmHEAT.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="60" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="10" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="0.25" TypeId="Ingot" SubtypeId="Uranium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="Nova88mmHEAT" />
+      <BaseProductionTimeInSeconds>65.00</BaseProductionTimeInSeconds>
+	  
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Ares600mmHE_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>400mm Ares HE Rocket Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\AresRocket.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="200" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="40" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="3" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="1.2" TypeId="Ingot" SubtypeId="Uranium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="Ares600mmHE" />
+      <BaseProductionTimeInSeconds>45.00</BaseProductionTimeInSeconds>
+	  
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Kraken800mm_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>188mm Hydra Missile Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\KrakenMissile.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="200" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="50" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="3" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="3" TypeId="Ingot" SubtypeId="Uranium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="Kraken800mm" />
+      <BaseProductionTimeInSeconds>86.00</BaseProductionTimeInSeconds>
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CycloneBomb_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Scylla CPW</DisplayName>
+      <Icon>Textures\GUI\Icons\CycloneBomb.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="200" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="100" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="3" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="10" TypeId="Ingot" SubtypeId="Uranium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="CycloneBomb" />
+      <BaseProductionTimeInSeconds>85.00</BaseProductionTimeInSeconds>
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CharybdisBomb_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Chrybdis Torpedo Stack</DisplayName>
+      <Icon>Textures\GUI\Icons\CharybdisBomb.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="200" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="100" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="3" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="10" TypeId="Ingot" SubtypeId="Uranium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="CharybdisBomb" />
+      <BaseProductionTimeInSeconds>65.00</BaseProductionTimeInSeconds>
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ChimeraTank_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Chimera Flamer Tank</DisplayName>
+      <Icon>Textures\GUI\Icons\ChimeraTank.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="100" TypeId="Ingot" SubtypeId="Iron" />
+		<Item Amount="3" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="800" TypeId="Ore" SubtypeId="Ice" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="ChimeraTank" />
+      <BaseProductionTimeInSeconds>45.00</BaseProductionTimeInSeconds>
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CenturianShell_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Centurion HE Shell</DisplayName>
+      <Icon>Textures\GUI\Icons\CenturianShell.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="40" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="30" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="3" TypeId="Ingot" SubtypeId="Silicon" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="CenturianShell" />
+      <BaseProductionTimeInSeconds>65.00</BaseProductionTimeInSeconds>
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CerberusStack_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Cerberus HE Shell Stack</DisplayName>
+      <Icon>Textures\GUI\Icons\CenturianShell.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="120" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="90" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="9" TypeId="Ingot" SubtypeId="Silicon" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="CerberusStack" />
+      <BaseProductionTimeInSeconds>85.00</BaseProductionTimeInSeconds>
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>Eris88mmStack_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Eris 88mm HEAT Shell Stack</DisplayName>
+      <Icon>Textures\GUI\Icons\88mmHEAT.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="60" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="70" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="9" TypeId="Ingot" SubtypeId="Silicon" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="Eris88mmStack" />
+      <BaseProductionTimeInSeconds>15.00</BaseProductionTimeInSeconds>
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>ArbiterMissile_Blueprint</SubtypeId>
+      </Id>
+      <DisplayName>Arbiter Missile</DisplayName>
+      <Icon>Textures\GUI\Icons\CenturianShell.png</Icon>
+	  
+      <Prerequisites>
+        <Item Amount="500" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="900" TypeId="Ingot" SubtypeId="Magnesium" />
+		<Item Amount="900" TypeId="Ingot" SubtypeId="Silicon" />
+		<Item Amount="1000" TypeId="Ingot" SubtypeId="Uranium" />
+		 <Item Amount="900" TypeId="Component" SubtypeId="Delitum_Core" />
+		 <Item Amount="900" TypeId="Component" SubtypeId="ArcFuel" />
+		 <Item Amount="300" TypeId="Ingot" SubtypeId="Lithium" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="ArbiterMissile" />
+      <BaseProductionTimeInSeconds>150.00</BaseProductionTimeInSeconds>
+    </Blueprint>
+	
+	<Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>CenturianCasing</SubtypeId>
+      </Id>
+      <DisplayName>Centurion Shell Casing</DisplayName>
+      <Icon>Textures\GUI\Icons\component\ScrapMetalComponent.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1" TypeId="Component" SubtypeId="CenturianCasing" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="Ingot" SubtypeId="Iron" />
+      <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+    </Blueprint> 
+	
+	
+	
+  </Blueprints>
+  <BlueprintClassEntries>
+   
+	<!-- EliteConsumables -->
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="Lancer50standard_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="Lancer50AP_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="ThresherMissile_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="ThresherMIRV_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="Raptor200x30_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="Sigma400mmHE_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="Nova88mmHEAT_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="Ares600mmHE_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="CycloneBomb_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="Kraken800mm_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="FlakBelt_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="CharybdisBomb_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="ChimeraTank_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="ThresherEMP_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="ThresherStunLock_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="CrusaderMissile_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="JSTR200mm_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="CenturianShell_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="LotusMissile_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="CerberusStack_Blueprint" />
+		<Entry Class="EliteConsumables" BlueprintSubtypeId="ArbiterMissile_Blueprint" />
+	<!-- Ammunition -->
+		<Entry Class="Ammo" BlueprintSubtypeId="Lancer50standard_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="Lancer50AP_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="ThresherMissile_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="ThresherMIRV_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="Raptor200x30_Blueprint" />
+		
+		<Entry Class="Ammo" BlueprintSubtypeId="Sigma400mmHE_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="Nova88mmHEAT_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="Ares600mmHE_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="CycloneBomb_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="Kraken800mm_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="FlakBelt_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="CharybdisBomb_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="ChimeraTank_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="ThresherEMP_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="ThresherStunLock_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="CrusaderMissile_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="JSTR200mm_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="CenturianShell_Blueprint" />
+		<Entry Class="Ammo" BlueprintSubtypeId="LotusMissile_Blueprint" />
+		<Entry Class="Ammo2" BlueprintSubtypeId="CerberusStack_Blueprint" />
+		<Entry Class="Ammo2" BlueprintSubtypeId="ArbiterMissile_Blueprint" />
+		<Entry Class="CommonMetals" BlueprintSubtypeId="CenturianCasing" />    
+		<Entry Class="Ingots" BlueprintSubtypeId="CenturianCasing" /> 
+		
+  </BlueprintClassEntries>
+</Definitions>

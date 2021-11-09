@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ResearchGroups>
+  
+    <ResearchGroup xsi:type="ResearchGroup">
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="76" />
+      <Members>
+        <BlockId Type="MyObjectBuilder_SmallGatlingGun" Subtype="" />
+      </Members>
+    </ResearchGroup>
+	
+	<ResearchGroup xsi:type="ResearchGroup">
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="77" />
+      <Members>
+        <BlockId Type="MyObjectBuilder_ConveyorSorter" Subtype="HalberdLeft" />
+		<BlockId Type="MyObjectBuilder_ConveyorSorter" Subtype="HalberdRight" />
+      </Members>
+    </ResearchGroup>
+	
+	<ResearchGroup xsi:type="ResearchGroup">
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="78" />
+      <Members>
+        <BlockId Type="MyObjectBuilder_ConveyorSorter" Subtype="LancerStaticGun" />
+		<BlockId Type="MyObjectBuilder_ConveyorSorter" Subtype="SaberTwin" />
+		<BlockId Type="MyObjectBuilder_ConveyorSorter" Subtype="NovaCannon" />
+      </Members>
+    </ResearchGroup>
+	
+	<ResearchGroup xsi:type="ResearchGroup">
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="79" />
+      <Members>
+        <BlockId Type="MyObjectBuilder_ConveyorSorter" Subtype="LaserDesignator" />
+      </Members>
+    </ResearchGroup>
+	
+	<ResearchGroup xsi:type="ResearchGroup">
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="80" />
+      <Members>
+        <BlockId Type="MyObjectBuilder_ConveyorSorter" Subtype="ReceptorCoilGun" />
+      </Members>
+    </ResearchGroup>
+	
+	<ResearchGroup xsi:type="ResearchGroup">
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="81" />
+      <Members>
+        <BlockId Type="MyObjectBuilder_ConveyorSorter" Subtype="ThresherTube" />
+		<BlockId Type="MyObjectBuilder_ConveyorSorter" Subtype="ThresherLauncher" />
+		<BlockId Type="MyObjectBuilder_ConveyorSorter" Subtype="ThresherDouble" />
+      </Members>
+    </ResearchGroup>
+	
+	<ResearchGroup xsi:type="ResearchGroup">
+      <Id Type="MyObjectBuilder_ResearchGroupDefinition" Subtype="82" />
+      <Members>
+        <BlockId Type="MyObjectBuilder_ConveyorSorter" Subtype="PlasmaRepeater" />
+		<BlockId Type="MyObjectBuilder_ConveyorSorter" Subtype="BoltCannon" />
+      </Members>
+    </ResearchGroup>
+	
+  </ResearchGroups>
+</Definitions>

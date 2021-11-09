@@ -1,0 +1,702 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Sounds> 
+  
+			<!-- Reloads -->
+			<Sound>
+				<Id>
+				<TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+				<SubtypeId>LancerReload</SubtypeId>
+			  </Id>
+			  <Category>RELOAD</Category>
+			  <MaxDistance>500</MaxDistance>
+			  <PreventSynchronization>0</PreventSynchronization>
+			  <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+			  <DynamicMusicAmount>3</DynamicMusicAmount>
+			  <Volume>.5</Volume>
+			  <SoundLimit>2</SoundLimit>
+			  <Waves>
+				<Wave Type="D3">
+				  <Start>Sound\LancerReload.wav</Start>
+				</Wave>
+			  </Waves>
+			</Sound>
+	
+			<Sound>
+				<Id>
+				<TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+				<SubtypeId>RaptorReload</SubtypeId>
+			  </Id>
+			  <Category>RELOAD</Category>
+			  <MaxDistance>500</MaxDistance>
+			  <PreventSynchronization>0</PreventSynchronization>
+			  <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+			  <DynamicMusicAmount>3</DynamicMusicAmount>
+			  <Volume>.5</Volume>
+			  <SoundLimit>2</SoundLimit>
+			  <Waves>
+				<Wave Type="D3">
+				  <Start>Sound\RaptorReload.wav</Start>
+				</Wave>
+			  </Waves>
+			</Sound>
+			
+			<Sound>
+				<Id>
+				<TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+				<SubtypeId>ChimeraFire</SubtypeId>
+			  </Id>
+			  <Category>RELOAD</Category>
+			  <MaxDistance>500</MaxDistance>
+			  <PreventSynchronization>0</PreventSynchronization>
+			  <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+			  <DynamicMusicAmount>3</DynamicMusicAmount>
+			  <Volume>2</Volume>
+			  <SoundLimit>2</SoundLimit>
+			  <Waves>
+				<Wave Type="D3">
+				  <Start>Sound\Chimera.wav</Start>
+				</Wave>
+			  </Waves>
+			</Sound>
+			
+			<Sound>
+				<Id>
+				<TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+				<SubtypeId>ChimeraReload</SubtypeId>
+			  </Id>
+			  <Category>RELOAD</Category>
+			  <MaxDistance>500</MaxDistance>
+			  <PreventSynchronization>0</PreventSynchronization>
+			  <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+			  <DynamicMusicAmount>3</DynamicMusicAmount>
+			  <Volume>.5</Volume>
+			  <SoundLimit>2</SoundLimit>
+			  <Waves>
+				<Wave Type="D3">
+				  <Start>Sound\ChimeraReload.wav</Start>
+				</Wave>
+			  </Waves>
+			</Sound>
+			
+			<Sound>
+				<Id>
+				<TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+				<SubtypeId>CycloneReload</SubtypeId>
+			  </Id>
+			  <Category>RELOAD</Category>
+			  <MaxDistance>500</MaxDistance>
+			  <PreventSynchronization>0</PreventSynchronization>
+			  <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+			  <DynamicMusicAmount>3</DynamicMusicAmount>
+			  <Volume>.5</Volume>
+			  <SoundLimit>2</SoundLimit>
+			  <Waves>
+				<Wave Type="D3">
+				  <Start>Sound\CycloneReload.wav</Start>
+				</Wave>
+			  </Waves>
+			</Sound>
+	
+				<!-- Gunshots -->
+		<Sound>
+		  <Id>
+			<TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+			<SubtypeId>LancerGunShot</SubtypeId>
+		  </Id>
+		  <Category>SHOT</Category>
+		  <MaxDistance>500</MaxDistance>
+		  <PreventSynchronization>0</PreventSynchronization>
+		  <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+		  <DynamicMusicAmount>3</DynamicMusicAmount>
+		  <Volume>.5</Volume>
+		  <SoundLimit>2</SoundLimit>
+		  <Waves>
+			<Wave Type="D3">
+			  <Start>Sound\LancerShot.wav</Start>
+			</Wave>
+		  </Waves>
+		</Sound> 
+		
+		<Sound>
+			<Id>
+			<TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+			<SubtypeId>RaptorFire</SubtypeId>
+		  </Id>
+		  <Category>SHOT</Category>
+		  <MaxDistance>500</MaxDistance>
+		  <PreventSynchronization>0</PreventSynchronization>
+		  <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+		  <DynamicMusicAmount>3</DynamicMusicAmount>
+		  <Volume>.8</Volume>
+		  <SoundLimit>2</SoundLimit>
+		  <Waves>
+			<Wave Type="D3">
+			  <Start>Sound\RaptorFire.wav</Start>
+			</Wave>
+		  </Waves>
+		</Sound>
+	
+		<Sound>
+			<Id>
+			<TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+			<SubtypeId>Sigma11Launch</SubtypeId>
+		  </Id>
+		  <Category>SHOT</Category>
+		  <MaxDistance>500</MaxDistance>
+		  <PreventSynchronization>0</PreventSynchronization>
+		  <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+		  <DynamicMusicAmount>3</DynamicMusicAmount>
+		  <Volume>.5</Volume>
+		  <SoundLimit>2</SoundLimit>
+		  <Waves>
+			<Wave Type="D3">
+			  <Start>Sound\Sigma11Launch.wav</Start>
+			</Wave>
+		  </Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+			<TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+			<SubtypeId>TalonFire</SubtypeId>
+		  </Id>
+		  <Category>SHOT</Category>
+		  <MaxDistance>500</MaxDistance>
+		  <PreventSynchronization>0</PreventSynchronization>
+		  <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+		  <DynamicMusicAmount>3</DynamicMusicAmount>
+		  <Volume>1</Volume>
+		  <SoundLimit>2</SoundLimit>
+		  <Waves>
+			<Wave Type="D3">
+			  <Start>Sound\TalonFire.wav</Start>
+			</Wave>
+		  </Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+			<TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+			<SubtypeId>OrionShot</SubtypeId>
+		  </Id>
+		  <Category>SHOT</Category>
+		  <MaxDistance>500</MaxDistance>
+		  <PreventSynchronization>0</PreventSynchronization>
+		  <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+		  <DynamicMusicAmount>3</DynamicMusicAmount>
+		  <Volume>1</Volume>
+		  <SoundLimit>2</SoundLimit>
+		  <Waves>
+			<Wave Type="D3">
+			  <Start>Sound\OrionShot.wav</Start>
+			</Wave>
+		  </Waves>
+		</Sound>
+				<!-- Prefires -->
+		<Sound>
+			<Id>
+			<TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+			<SubtypeId>Sigma11Prefire</SubtypeId>
+			</Id>
+		  <Category>PREFIRE</Category>
+		  <MaxDistance>500</MaxDistance>
+		  <PreventSynchronization>0</PreventSynchronization>
+		  <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+		  <DynamicMusicAmount>3</DynamicMusicAmount>
+		  <Volume>.5</Volume>
+		  <SoundLimit>2</SoundLimit>
+		  <Waves>
+			<Wave Type="D3">
+			  <Start>Sound\Sigma11Prefire.wav</Start>
+			</Wave>
+		  </Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+			<TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+			<SubtypeId>CyclonePrefire</SubtypeId>
+			</Id>
+		  <Category>PREFIRE</Category>
+		  <MaxDistance>500</MaxDistance>
+		  <PreventSynchronization>0</PreventSynchronization>
+		  <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+		  <DynamicMusicAmount>3</DynamicMusicAmount>
+		  <Volume>.5</Volume>
+		  <SoundLimit>2</SoundLimit>
+		  <Waves>
+			<Wave Type="D3">
+			  <Start>Sound\CyclonePrefire.wav</Start>
+			</Wave>
+		  </Waves>
+		</Sound>
+	
+	
+	
+	
+	
+	<Sound>
+		<Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>LancerEmpty</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>.5</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\LancerEmpty.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+	
+	 
+	
+	
+	
+	<Sound>
+		<Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>Sigma11Reload</SubtypeId>
+      </Id>
+      <Category>RELOAD</Category>
+     <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>.5</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\Sigma11Reload.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+	
+	<Sound>
+			<Id>
+			<TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+			<SubtypeId>JSTRReload</SubtypeId>
+		  </Id>
+		  <Category>SHOT</Category>
+		  <MaxDistance>500</MaxDistance>
+		  <PreventSynchronization>0</PreventSynchronization>
+		  <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+		  <DynamicMusicAmount>3</DynamicMusicAmount>
+		  <Volume>.5</Volume>
+		  <SoundLimit>2</SoundLimit>
+		  <Waves>
+			<Wave Type="D3">
+			  <Start>Sound\JSTRReload.wav</Start>
+			</Wave>
+		  </Waves>
+		</Sound>
+	
+	<Sound>
+		<Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>Sigma11Empty</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>.5</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\Sigma11Empty.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 	
+	
+	<Sound>
+		<Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>NovaShot</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>.6</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\NovaShot.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>SaberShot</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>500</MaxDistance>
+      <Loopable>true</Loopable>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>1</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\SaberShot.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>CoilGunFire</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>500</MaxDistance>
+      <Loopable>true</Loopable>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>2</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\CoilGunFire.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>RepeaterShot</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>500</MaxDistance>
+      <Loopable>true</Loopable>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>.4</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\RepeaterShot.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 	
+
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>CoilGunPrefire</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>500</MaxDistance>
+      <Loopable>true</Loopable>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>2</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\CoilGunPrefire.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 	
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>HalberdShot</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>1</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\HalberdShot.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>HalberdReload</SubtypeId>
+      </Id>
+      <Category>RELOAD</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>1</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\HalberdReload.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>ThresherReload</SubtypeId>
+      </Id>
+      <Category>RELOAD</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>.8</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\ThresherReload.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>AresLaunch</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>1</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\AresLaunch.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>AresReload</SubtypeId>
+      </Id>
+      <Category>RELOAD</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>.8</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\AresReload.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>ThresherDoubleReload</SubtypeId>
+      </Id>
+      <Category>RELOAD</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>.8</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\ThresherDoubleReload.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>ThresherReloadSingle</SubtypeId>
+      </Id>
+      <Category>RELOAD</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>.8</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\ThresherReloadSingle.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>CenturianReload</SubtypeId>
+      </Id>
+      <Category>RELOAD</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>.8</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\CenturianReload.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>CenturianFire</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>5</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\CenturianFire.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>CrusaderReload</SubtypeId>
+      </Id>
+      <Category>RELOAD</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>2</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\CrusaderReload.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>LotusReload</SubtypeId>
+      </Id>
+      <Category>RELOAD</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>1</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\LotusReload.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>CrusaderOpening</SubtypeId>
+      </Id>
+      <Category>RELOAD</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>.8</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\CrusaderOpening.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>CrusaderLaunch</SubtypeId>
+      </Id>
+      <Category>RELOAD</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>1.5</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\CrusaderLaunch.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 	
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>ThresherFire</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>.5</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\ThresherFire.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>BroadswordShot</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>500</MaxDistance>
+      <PreventSynchronization>0</PreventSynchronization>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>1.4</Volume>
+	  <SoundLimit>2</SoundLimit>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Sound\BroadswordShot.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound> 
+	
+  </Sounds>
+</Definitions>

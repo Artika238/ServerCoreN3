@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <BlockVariantGroups>
+
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="HalberdGatlingGroup" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="HalberdRight" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="HalberdLeft" />
+            </Blocks>
+        </BlockVariantGroup>
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="AresLauncherGroup" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="AresLauncherLeft" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="AresLauncherRight" />
+            </Blocks>
+        </BlockVariantGroup>
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="RaptorGroup" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="RaptorGatling" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="RaptorGatlingArmored45" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="RaptorGatlingArmored30" />
+            </Blocks>
+        </BlockVariantGroup>
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="HydraGroup" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="KrakenStatic" />
+				<Block Type="MyObjectBuilder_LargeTurretBaseDefinition" Subtype="KrakenTurret" />
+            </Blocks>
+        </BlockVariantGroup>
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="Accelerators" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="IcarusAccelerator" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="TyphonAccelerator" />
+            </Blocks>
+        </BlockVariantGroup>
+		
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="ThresherGroup" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="ThresherLauncher" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="ThresherDouble" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="ThresherTube" />
+            </Blocks>
+        </BlockVariantGroup>
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="CrusaderGroup" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="CrusaderLauncherOpen" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="CrusaderLauncherOpenStatic" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="CrusaderTube" />
+            </Blocks>
+        </BlockVariantGroup>
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="LancerTurretGroup" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="LancerTurret" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="LancerTurret45" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="LancerTurret30" />
+            </Blocks>
+        </BlockVariantGroup>
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="SaberTurretGroup" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="SaberTurret" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="SaberTurret45" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="SaberTurret30" />
+            </Blocks>
+        </BlockVariantGroup>
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="GlaiveTurretGroup" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="NovaTurret" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="GlaiveTurret45" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="GlaiveTurret30" />
+            </Blocks>
+        </BlockVariantGroup>
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="ThresherTurretGroup" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="ThresherTurret" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="ThresherTurret45" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="ThresherTurret30" />
+            </Blocks>
+        </BlockVariantGroup>
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="KrakenTurretGroup" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="KrakenTurret" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="KrakenTurret45" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="KrakenTurret30" />
+            </Blocks>
+        </BlockVariantGroup>
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="PlasmaRepeaterTurretGroup" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="PlasmaRepeaterTurret" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="PlasmaRepeaterTurret45" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="PlasmaRepeaterTurret30" />
+            </Blocks>
+        </BlockVariantGroup>
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="ReceptorTurretGroup" />
+            <Blocks>
+				<Block Type="MyObjectBuilder_LargeMissileTurret" Subtype="ReceptorTurret" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="ReceptorTurret45" />
+				<Block Type="MyObjectBuilder_ConveyorSorter" Subtype="ReceptorTurret30" />
+            </Blocks>
+        </BlockVariantGroup>
+
+    </BlockVariantGroups>
+</Definitions>

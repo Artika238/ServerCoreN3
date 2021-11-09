@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ResearchBlocks>
+  
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="LancerStaticGun" />
+      <UnlockedByGroups>
+        <GroupSubtype>76</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+    <ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="SaberTwin" />
+      <UnlockedByGroups>
+        <GroupSubtype>76</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+  
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="HalberdLeft" />
+      <UnlockedByGroups>
+        <GroupSubtype>76</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="HalberdRight" />
+      <UnlockedByGroups>
+        <GroupSubtype>76</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="LaserDesignator" />
+      <UnlockedByGroups>
+        <GroupSubtype>76</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="NovaCannon" />
+      <UnlockedByGroups>
+        <GroupSubtype>76</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="RaptorGatling" />
+      <UnlockedByGroups>
+        <GroupSubtype>77</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="RaptorGatlingArmored45" />
+      <UnlockedByGroups>
+        <GroupSubtype>77</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="RaptorGatlingArmored30" />
+      <UnlockedByGroups>
+        <GroupSubtype>77</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_LargeMissileTurret" Subtype="LancerTurret" />
+      <UnlockedByGroups>
+        <GroupSubtype>78</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_LargeMissileTurret" Subtype="SaberTurret" />
+      <UnlockedByGroups>
+        <GroupSubtype>78</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_LargeMissileTurret" Subtype="NovaTurret" />
+      <UnlockedByGroups>
+        <GroupSubtype>78</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="RaptorLightTurret" />
+      <UnlockedByGroups>
+        <GroupSubtype>78</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="ReceptorCoilGun" />
+      <UnlockedByGroups>
+        <GroupSubtype>79</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="BoltCannon" />
+      <UnlockedByGroups>
+        <GroupSubtype>80</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="PlasmaRepeater" />
+      <UnlockedByGroups>
+        <GroupSubtype>80</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="HeavyPlasmaCannon" />
+      <UnlockedByGroups>
+        <GroupSubtype>82</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="OrionLauncherRight" />
+      <UnlockedByGroups>
+        <GroupSubtype>82</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="OrionLauncherLeft" />
+      <UnlockedByGroups>
+        <GroupSubtype>82</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_LargeMissileTurret" Subtype="PlasmaRepeaterTurret" />
+      <UnlockedByGroups>
+        <GroupSubtype>82</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_LargeMissileTurret" Subtype="ReceptorTurret" />
+      <UnlockedByGroups>
+        <GroupSubtype>82</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_LargeMissileTurret" Subtype="ReceptorTurret" />
+      <UnlockedByGroups>
+        <GroupSubtype>82</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="IcarusAccelerator" />
+      <UnlockedByGroups>
+        <GroupSubtype>82</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="TyphonAccelerator" />
+      <UnlockedByGroups>
+        <GroupSubtype>82</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="ThresherLauncher" />
+      <UnlockedByGroups>
+        <GroupSubtype>17</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="ThresherDouble" />
+      <UnlockedByGroups>
+        <GroupSubtype>17</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="Sigma11Launcher" />
+      <UnlockedByGroups>
+        <GroupSubtype>17</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="Sigma11Launcher" />
+      <UnlockedByGroups>
+        <GroupSubtype>17</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="AresLauncherLeft" />
+      <UnlockedByGroups>
+        <GroupSubtype>17</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="AresLauncherRight" />
+      <UnlockedByGroups>
+        <GroupSubtype>17</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="KrakenStatic" />
+      <UnlockedByGroups>
+        <GroupSubtype>17</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="KrakenTurret" />
+      <UnlockedByGroups>
+        <GroupSubtype>17</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="CycloneBombBay" />
+      <UnlockedByGroups>
+        <GroupSubtype>17</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+	<ResearchBlock xsi:type="ResearchBlock">
+      <Id Type="MyObjectBuilder_ConveyorSorter" Subtype="CharybdisBombBay" />
+      <UnlockedByGroups>
+        <GroupSubtype>17</GroupSubtype>
+      </UnlockedByGroups>
+    </ResearchBlock>
+	
+  </ResearchBlocks>
+</Definitions>

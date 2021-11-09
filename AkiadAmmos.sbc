@@ -1,0 +1,667 @@
+﻿<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AmmoMagazines>
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>Lancer50standard</SubtypeId>
+      </Id>
+      <DisplayName>50mm Ammo Container</DisplayName>
+      <Icon>Textures\GUI\Icons\24x50mm.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>25</Mass> <!-- 79.875 per shell -->
+      <Volume>30</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\24x50mm.mwm</Model>
+      <Capacity>160</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>FlakBelt</SubtypeId>
+      </Id>
+      <DisplayName>Flak Belt</DisplayName>
+      <Icon>Textures\GUI\Icons\FlakBelt.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>30</Mass> <!-- 79.875 per shell -->
+      <Volume>45</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\FlakBelt.mwm</Model>
+      <Capacity>24</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>LotusMissile</SubtypeId>
+      </Id>
+      <DisplayName>Lotus Missile Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\LotusMissile.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>60</Mass> <!-- 79.875 per shell -->
+      <Volume>75</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\LotusMissile.mwm</Model>
+      <Capacity>42</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>JSTRRocket</SubtypeId>
+      </Id>
+      <DisplayName>200mm JSTR Rocket Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\JSTRRocket.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>30</Mass> <!-- 79.875 per shell -->
+      <Volume>45</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\JSTRRocket.mwm</Model>
+      <Capacity>4</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>CenturianShell</SubtypeId>
+      </Id>
+      <DisplayName>Centurion HE Shell</DisplayName>
+      <Icon>Textures\GUI\Icons\CenturianShell.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>30</Mass> <!-- 79.875 per shell -->
+      <Volume>45</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\CenturianShell.mwm</Model>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>CerberusStack</SubtypeId>
+      </Id>
+      <DisplayName>Cerberus HE Shell Stack</DisplayName>
+      <Icon>Textures\GUI\Icons\CenturianShell.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>90</Mass> <!-- 79.875 per shell -->
+      <Volume>95</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\CenturianShell.mwm</Model>
+      <Capacity>3</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>LotusMine</SubtypeId>
+      </Id>
+      <DisplayName>Lotus Mine</DisplayName>
+      <Icon>Textures\GUI\Icons\LotusMissile.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>30</Mass> <!-- 79.875 per shell -->
+      <Volume>45</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\LotusMine.mwm</Model>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>ChimeraTank</SubtypeId>
+      </Id>
+      <DisplayName>Chimera Hydrogen Tank</DisplayName>
+      <Icon>Textures\GUI\Icons\ChimeraTank.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>30</Mass> <!-- 79.875 per shell -->
+      <Volume>45</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\ChimeraTank.mwm</Model>
+      <Capacity>600</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>CrusaderMissile</SubtypeId>
+      </Id>
+      <DisplayName>Crusader Missile</DisplayName>
+      <Icon>Textures\GUI\Icons\CrusaderMissile.png</Icon>
+      <Size>
+        <X>1</X>
+        <Y>5.0</Y>
+        <Z>1</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>800</Mass> <!-- 79.875 per shell -->
+      <Volume>1300</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\CrusaderMissile.mwm</Model>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>FlakShrapnel</SubtypeId>
+      </Id>
+      <DisplayName>Flak Shrapnel</DisplayName>
+      <Icon></Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>30</Mass> <!-- 79.875 per shell -->
+      <Volume>45</Volume> <!-- 106.5 per shell -->
+      <Model></Model>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>Raptor200x30</SubtypeId>
+      </Id>
+      <DisplayName>30mm Raptor Ammo Container</DisplayName>
+      <Icon>Textures\GUI\Icons\RaptorAmmoBox.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>64</Mass> <!-- 79.875 per shell -->
+      <Volume>100</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\RaptorAmmoBox.mwm</Model>
+      <Capacity>1000</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>Lancer50AP</SubtypeId>
+      </Id>
+      <DisplayName>50mm Armor Piercing Ammo Container</DisplayName>
+      <Icon>Textures\GUI\Icons\12x50mm.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>30</Mass> <!-- 79.875 per shell -->
+      <Volume>50</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\12x50mm.mwm</Model>
+      <Capacity>40</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>ThresherMissile</SubtypeId>
+      </Id>
+      <DisplayName>Thresher Missile Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\ThresherBundle.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>96</Mass> <!-- 79.875 per shell -->
+      <Volume>100</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\ThresherBundle.mwm</Model>
+      <Capacity>4</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>ThresherEMP</SubtypeId>
+      </Id>
+      <DisplayName>Thresher EMP Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\ThresherBundle.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>96</Mass> <!-- 79.875 per shell -->
+      <Volume>100</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\ThresherBundle.mwm</Model>
+      <Capacity>4</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>ThresherStunLock</SubtypeId>
+      </Id>
+      <DisplayName>Thresher Stun-Lock Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\ThresherBundle.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>96</Mass> <!-- 79.875 per shell -->
+      <Volume>100</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\ThresherBundle.mwm</Model>
+      <Capacity>4</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>ThresherMIRV</SubtypeId>
+      </Id>
+      <DisplayName>Thresher MIRV Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\ThresherBundle.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>96</Mass> <!-- 79.875 per shell -->
+      <Volume>100</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\ThresherBundle.mwm</Model>
+      <Capacity>4</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>Kraken800mm</SubtypeId>
+      </Id>
+      <DisplayName>188mm Hydra Missile Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\KrakenMissile.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>96</Mass> <!-- 79.875 per shell -->
+      <Volume>200</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\KrakenMissile.mwm</Model>
+      <Capacity>5</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>OrionOrbShrapnel</SubtypeId>
+      </Id>
+      <DisplayName>Orion Orb Shrapnel</DisplayName>
+      <Icon>Textures\GUI\Icons\ThresherBundle.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>96</Mass> <!-- 79.875 per shell -->
+      <Volume>240</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\OrionGlobe.mwm</Model>
+      <Capacity>20</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>Nova88mmHEAT</SubtypeId>
+      </Id>
+      <DisplayName>88mm HEAT Ammo Container</DisplayName>
+      <Icon>Textures\GUI\Icons\88mmHEAT.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>96</Mass> <!-- 79.875 per shell -->
+      <Volume>40</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\88mmHEATBundle.mwm</Model>
+      <Capacity>12</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>Eris88mmStack</SubtypeId>
+      </Id>
+      <DisplayName>Eris 88mm HEAT Shell Stack</DisplayName>
+      <Icon>Textures\GUI\Icons\88mmHEAT.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>120</Mass> <!-- 79.875 per shell -->
+      <Volume>40</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\88mmHEATBundle.mwm</Model>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>Sigma400mmHE</SubtypeId>
+      </Id>
+      <DisplayName>200mm Sigma Rocket Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\Sigma11Rocket.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>150</Mass> <!-- 79.875 per shell -->
+      <Volume>120</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\Sigma11Rocket.mwm</Model>
+      <Capacity>11</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>Ares600mmHE</SubtypeId>
+      </Id>
+      <DisplayName>400mm Ares HE Rocket Bundle</DisplayName>
+      <Icon>Textures\GUI\Icons\AresRocket.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>150</Mass> <!-- 79.875 per shell -->
+      <Volume>120</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\AresRocket.mwm</Model>
+      <Capacity>5</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>HEShrapnel</SubtypeId>
+      </Id>
+      <DisplayName>HE Shrapnel</DisplayName>
+      <Icon></Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>64</Mass> <!-- 79.875 per shell -->
+      <Volume>30</Volume> <!-- 106.5 per shell -->
+      <Model></Model>
+      <Capacity>64</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>KrakenStage2</SubtypeId>
+      </Id>
+      <DisplayName>Kraken Missile Stage 2</DisplayName>
+      <Icon></Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>64</Mass> <!-- 79.875 per shell -->
+      <Volume>30</Volume> <!-- 106.5 per shell -->
+      <Model></Model>
+      <Capacity>5</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>CycloneBomb</SubtypeId>
+      </Id>
+      <DisplayName>Scylla CPW</DisplayName>
+      <Icon>Textures\GUI\Icons\CycloneBomb.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>400</Mass> <!-- 79.875 per shell -->
+      <Volume>300</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\CycloneBomb.mwm</Model>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>CharybdisBomb</SubtypeId>
+      </Id>
+      <DisplayName>Charybdis Torpedo Stack</DisplayName>
+      <Icon>Textures\GUI\Icons\CharybdisBomb.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>200</Mass> <!-- 79.875 per shell -->
+      <Volume>160</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\CharybdisBomb.mwm</Model>
+      <Capacity>71</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>CharybdisBombStage2</SubtypeId>
+      </Id>
+      <DisplayName>Charybdis Stage 2</DisplayName>
+      <Icon>Textures\GUI\Icons\CharybdisBomb.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>200</Mass> <!-- 79.875 per shell -->
+      <Volume>160</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\CharybdisBomb.mwm</Model>
+      <Capacity>71</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>SmartBomb</SubtypeId>
+      </Id>
+      <DisplayName>HE Smart Bomb</DisplayName>
+      <Icon>Textures\GUI\Icons\SmartBomb.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>20</Mass> <!-- 79.875 per shell -->
+      <Volume>30</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\SmartBomb.mwm</Model>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>DesignatorLaser</SubtypeId>
+      </Id>
+      <DisplayName>Designator Laser</DisplayName>
+      <Icon>Textures\GUI\Icons\SmartBomb.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>20</Mass> <!-- 79.875 per shell -->
+      <Volume>30</Volume> <!-- 106.5 per shell -->
+      <Model></Model>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>ArbiterMissile</SubtypeId>
+      </Id>
+      <DisplayName>Arbiter Missile</DisplayName>
+      <Icon>Textures\GUI\Icons\ArbiterMissile.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>4000</Mass> <!-- 79.875 per shell -->
+      <Volume>4000</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\ArbiterMissile.mwm</Model>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+  </AmmoMagazines>
+  
+  <Components>
+    <Component>
+      <Id>
+        <TypeId>Component</TypeId>
+        <SubtypeId>CenturianCasing</SubtypeId>
+      </Id>
+      <DisplayName>Centurian Shell Casing</DisplayName>
+      <Icon>Textures\GUI\Icons\component\ScrapMetalComponent.dds</Icon>
+      <Size>
+        <X>0.2</X>
+        <Y>0.2</Y>
+        <Z>0.1</Z>
+      </Size>
+      <Mass>1</Mass>
+      <Volume>0.254</Volume>
+      <Model>Models\Akiad\Small\CenturianCasing.mwm</Model>
+      <PhysicalMaterial>Metal</PhysicalMaterial>
+      <MaxIntegrity>40</MaxIntegrity>
+      <DropProbability>0.3</DropProbability>
+      <Health>14</Health>
+      <IconSymbol>IconSymbol_Fe</IconSymbol>
+      <MinimalPricePerUnit>100</MinimalPricePerUnit>
+      <MinimumOfferAmount>250</MinimumOfferAmount>
+      <MaximumOfferAmount>2500</MaximumOfferAmount>
+      <MinimumOrderAmount>100</MinimumOrderAmount>
+      <MaximumOrderAmount>1000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </Component>
+  </Components>
+  
+</Definitions>
