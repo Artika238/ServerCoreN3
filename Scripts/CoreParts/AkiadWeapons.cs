@@ -1,300 +1,16 @@
-﻿using System.Collections.Generic;
-using static WeaponThread.WeaponStructure;
-using static WeaponThread.WeaponStructure.WeaponDefinition;
-using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.ModelAssignmentsDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef.HardwareDef.ArmorState;
-using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef.Prediction;
-using static WeaponThread.WeaponStructure.WeaponDefinition.TargetingDef.BlockTypes;
-using static WeaponThread.WeaponStructure.WeaponDefinition.TargetingDef.Threat;
+﻿using static Scripts.Structure;
+using static Scripts.Structure.WeaponDefinition;
+using static Scripts.Structure.WeaponDefinition.ModelAssignmentsDef;
+using static Scripts.Structure.WeaponDefinition.HardPointDef;
+using static Scripts.Structure.WeaponDefinition.HardPointDef.Prediction;
+using static Scripts.Structure.WeaponDefinition.TargetingDef.BlockTypes;
+using static Scripts.Structure.WeaponDefinition.TargetingDef.Threat;
+using static Scripts.Structure.WeaponDefinition.HardPointDef.HardwareDef;
+using static Scripts.Structure.WeaponDefinition.HardPointDef.HardwareDef.HardwareType;
 
-namespace WeaponThread { 
-    partial class Weapons {
+namespace Scripts {   
+    partial class Parts {
         // Don't edit above this line
-		
-        WeaponDefinition LancerStaticGun => new WeaponDefinition {
-
-            Assignments = new ModelAssignmentsDef 
-            {
-                MountPoints = new[] {
-                    new MountPointDef {
-                        SubtypeId = "LancerStaticGun",
-                        MuzzlePartId = "LancerBarrel",
-                        AzimuthPartId = "None",
-                        ElevationPartId = "None",
-                        DurabilityMod = 0.25f,
-                        IconName = "None"
-                    },
-                },
-                Barrels = new [] {
-					"muzzle_missile_001",
-					"muzzle_missile_002",
-					"muzzle_missile_003",
-					"muzzle_missile_004",
-                },
-                Ejector = "",
-                Scope = "", //Where line of sight checks are performed from must be clear of block collision
-            },
-            Targeting = new TargetingDef  
-            {
-                Threats = new[] {
-                    Grids, Projectiles, Characters, Meteors,
-                },
-                SubSystems = new[] {
-                    Thrust, Utility, Offense, Power, Production, Any,
-                },
-                ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
-                IgnoreDumbProjectiles = false, // Don't fire at non-smart projectiles.
-                LockedSmartOnly = false, // Only fire at smart projectiles that are locked on to parent grid.
-                MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
-                MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
-                MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
-                TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
-                TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
-                StopTrackingSpeed = 0, // do not track target threats traveling faster than this speed
-            },
-            HardPoint = new HardPointDef 
-            {
-                WeaponName = "Lancer Burst Cannon", // name of weapon in terminal
-                DeviateShotAngle = 0,
-                AimingTolerance = 0, // 0 - 180 firing angle
-                AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
-                DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                AddToleranceToTracking = false,
-                CanShootSubmerged = false,
-
-                Ui = new UiDef {
-                    RateOfFire = true,
-                    DamageModifier = false,
-                    ToggleGuidance = false,
-                    EnableOverload = false,
-                },
-                Ai = new AiDef {
-                    TrackTargets = false,
-                    TurretAttached = false,
-                    TurretController = false,
-                    PrimaryTracking = false,
-                    LockOnFocus = false,
-                    SuppressFire = false,
-                },
-                HardWare = new HardwareDef {
-                    RotateRate = 0,
-                    ElevateRate = 0,
-                    MinAzimuth = 0,
-                    MaxAzimuth = 0,
-                    MinElevation = 0,
-                    MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
-                },
-                Other = new OtherDef {
-                    GridWeaponCap = 0,
-                    RotateBarrelAxis = 0,
-                    EnergyPriority = 0,
-                    MuzzleCheck = false,
-                    Debug = false,
-                    RestrictionRadius = 0, // Meters, radius of sphere disable this gun if another is present
-                    CheckInflatedBox = false, // if true, the bounding box of the gun is expanded by the RestrictionRadius
-                    CheckForAnyWeapon = false, // if true, the check will fail if ANY gun is present, false only looks for this subtype
-                },
-                Loading = new LoadingDef {
-                    RateOfFire = 300,
-                    BarrelSpinRate = 0, 
-                    BarrelsPerShot = 4,
-                    TrajectilesPerBarrel = 1, 
-                    SkipBarrels = 0,
-                    ReloadTime = 180, 
-                    DelayUntilFire = 0, 
-                    HeatPerShot = 176, 
-                    MaxHeat = 140000, 
-                    Cooldown = 50, 
-                    HeatSinkRate = 152, 
-                    DegradeRof = true, 
-                    ShotsInBurst = 2,
-                    DelayAfterBurst = 20, 
-                    FireFullBurst = true,
-                    GiveUpAfterBurst = false,
-                    DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
-                },
-                Audio = new HardPointAudioDef {
-                    PreFiringSound = "",
-                    FiringSound = "LancerGunShot", // WepShipGatlingShot
-                    FiringSoundPerShot = true,
-                    ReloadSound = "LancerReload",
-                    NoAmmoSound = "ArcWepShipGatlingNoAmmo",
-                    HardPointRotationSound = "WepTurretGatlingRotate",
-                    BarrelRotationSound = "WepShipGatlingRotation",
-                    FireSoundEndDelay = 120, // Measured in game ticks(6 = 100ms, 60 = 1 seconds, etc..).
-                },
-                Graphics = new HardPointParticleDef {
-
-					Barrel1 = new ParticleDef //FIXTHIS
-                    {
-                        Name = "AkiadFlash", // Smoke_LargeGunShot
-                        Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
-                        Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = new ParticleOptionDef
-                        {
-                            Loop = false,
-                            Restart = true,
-                            MaxDistance = 500,
-                            MaxDuration = 1,
-                            Scale = 1f,
-                        },
-                    },
-                },
-            },
-            Ammos = new [] {
-                Lancer50standard,Lancer50AP,
-            },
-             Animations= Lancer_Recoil
-            //Upgrades = UpgradeModules,
-            // Don't edit below this line
-        };
-		
-		WeaponDefinition SaberTwin => new WeaponDefinition {
-
-            Assignments = new ModelAssignmentsDef 
-            {
-                MountPoints = new[] {
-                    new MountPointDef {
-                        SubtypeId = "SaberTwin",
-                        MuzzlePartId = "SaberBarrel",
-                        AzimuthPartId = "None",
-                        ElevationPartId = "None",
-                        DurabilityMod = 0.25f,
-                        IconName = "None"
-                    },
-                },
-                Barrels = new [] {
-					"Muzzle_1",
-					"Muzzle_2",
-                },
-                Ejector = "",
-                Scope = "", //Where line of sight checks are performed from must be clear of block collision
-            },
-            Targeting = new TargetingDef  
-            {
-                Threats = new[] {
-                    Grids, Projectiles, Characters, Meteors,
-                },
-                SubSystems = new[] {
-                    Thrust, Utility, Offense, Power, Production, Any,
-                },
-                ClosestFirst = true, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
-                IgnoreDumbProjectiles = false, // Don't fire at non-smart projectiles.
-                LockedSmartOnly = false, // Only fire at smart projectiles that are locked on to parent grid.
-                MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
-                MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
-                MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
-                TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
-                TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
-                StopTrackingSpeed = 0, // do not track target threats traveling faster than this speed
-            },
-            HardPoint = new HardPointDef 
-            {
-                WeaponName = "Saber Twin Barrel", // name of weapon in terminal
-                DeviateShotAngle = 0,
-                AimingTolerance = 0, // 0 - 180 firing angle
-                AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
-                DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                AddToleranceToTracking = false,
-                CanShootSubmerged = false,
-
-                Ui = new UiDef {
-                    RateOfFire = true,
-                    DamageModifier = false,
-                    ToggleGuidance = false,
-                    EnableOverload = false,
-                },
-                Ai = new AiDef {
-                    TrackTargets = false,
-                    TurretAttached = false,
-                    TurretController = false,
-                    PrimaryTracking = false,
-                    LockOnFocus = false,
-                    SuppressFire = false,
-                },
-                HardWare = new HardwareDef {
-                    RotateRate = 0,
-                    ElevateRate = 0,
-                    MinAzimuth = 0,
-                    MaxAzimuth = 0,
-                    MinElevation = 0,
-                    MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
-                },
-                Other = new OtherDef {
-                    GridWeaponCap = 0,
-                    RotateBarrelAxis = 0,
-                    EnergyPriority = 0,
-                    MuzzleCheck = false,
-                    Debug = false,
-                    RestrictionRadius = 0, // Meters, radius of sphere disable this gun if another is present
-                    CheckInflatedBox = false, // if true, the bounding box of the gun is expanded by the RestrictionRadius
-                    CheckForAnyWeapon = false, // if true, the check will fail if ANY gun is present, false only looks for this subtype
-                },
-                Loading = new LoadingDef {
-                    RateOfFire = 400,
-                    BarrelSpinRate = 0, 
-                    BarrelsPerShot = 1,
-                    TrajectilesPerBarrel = 1, 
-                    SkipBarrels = 0,
-                    ReloadTime = 180, 
-                    DelayUntilFire = 0, 
-                    HeatPerShot = 143, 
-                    MaxHeat = 140000, 
-                    Cooldown = 50f, 
-                    HeatSinkRate = 120, 
-                    DegradeRof = true, 
-                    ShotsInBurst = 1,
-                    DelayAfterBurst = 10, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
-                    DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
-                },
-                Audio = new HardPointAudioDef {
-                    PreFiringSound = "",
-                    FiringSound = "SaberShot", // WepShipGatlingShot
-                    FiringSoundPerShot = true,
-                    ReloadSound = "LancerReload",
-                    NoAmmoSound = "ArcWepShipGatlingNoAmmo",
-                    HardPointRotationSound = "WepTurretGatlingRotate",
-                    BarrelRotationSound = "WepShipGatlingRotation",
-                    FireSoundEndDelay = 120, // Measured in game ticks(6 = 100ms, 60 = 1 seconds, etc..).
-                },
-                Graphics = new HardPointParticleDef {
-
-					Barrel1 = new ParticleDef //FIXTHIS
-                    {
-                        Name = "AkiadFlash", // Smoke_LargeGunShot
-                        Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
-                        Offset = Vector(x: 0, y: 0, z: 0),
-                        Extras = new ParticleOptionDef
-                        {
-                            Loop = false,
-                            Restart = true,
-                            MaxDistance = 500,
-                            MaxDuration = 1,
-                            Scale = 1f,
-                        },
-                    },
-                },
-            },
-            Ammos = new [] {
-                Lancer50AP,
-            },
-             Animations= Saber_Recoil
-            //Upgrades = UpgradeModules,
-            // Don't edit below this line
-        };
 		
 		WeaponDefinition Sigma11Launcher => new WeaponDefinition {
 
@@ -310,7 +26,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"Muzzle_1",
 					"Muzzle_2",
 					"Muzzle_3",
@@ -347,7 +63,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Sigma-11 Launcher", // name of weapon in terminal
+                PartName = "Sigma-11 Launcher", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -376,13 +92,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -393,12 +120,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 300,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 390, 
-                    DelayUntilFire = 30, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -406,8 +133,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 11,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = true,
-                    GiveUpAfterBurst = false,
+                    FireFull = true,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -422,7 +149,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
@@ -459,7 +186,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
 					"muzzle_missile_2",
 					"muzzle_missile_3",
@@ -482,7 +209,7 @@ namespace WeaponThread {
                 LockedSmartOnly = false, // Only fire at smart projectiles that are locked on to parent grid.
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
+                MaxTargetDistance = 5000, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
                 MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
                 TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
@@ -490,7 +217,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Ares Launcher", // name of weapon in terminal
+                PartName = "Ares Launcher", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -519,13 +246,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -536,12 +274,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 80,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 300, 
-                    DelayUntilFire = 30, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -549,8 +287,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 5,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -565,7 +303,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
@@ -602,7 +340,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
 					"muzzle_missile_2",
 					"muzzle_missile_3",
@@ -625,7 +363,7 @@ namespace WeaponThread {
                 LockedSmartOnly = false, // Only fire at smart projectiles that are locked on to parent grid.
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
+                MaxTargetDistance = 5000, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
                 MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
                 TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
@@ -633,7 +371,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Ares Launcher", // name of weapon in terminal
+                PartName = "Ares Launcher", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -662,13 +400,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -679,12 +428,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 80,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 300, 
-                    DelayUntilFire = 30, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -692,8 +441,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 5,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -708,7 +457,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
@@ -745,7 +494,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
 					"muzzle_missile_2",
 					"muzzle_missile_3",
@@ -768,7 +517,7 @@ namespace WeaponThread {
                 LockedSmartOnly = false, // Only fire at smart projectiles that are locked on to parent grid.
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
+                MaxTargetDistance = 5000, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
                 MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
                 TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
@@ -776,7 +525,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Hydra ATGM (Static)", // name of weapon in terminal
+                PartName = "Hydra ATGM (Static)", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -805,13 +554,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -822,12 +582,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 80,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 300, 
-                    DelayUntilFire = 30, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -835,8 +595,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 5,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -851,7 +611,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "Smoke_LargeGunShot", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
@@ -888,7 +648,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
 					"muzzle_missile_2",
 					"muzzle_missile_3",
@@ -918,7 +678,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "JSTR Launcher", // name of weapon in terminal
+                PartName = "JSTR Launcher", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -947,13 +707,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -964,12 +735,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 100,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 300, 
-                    DelayUntilFire = 30, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -977,8 +748,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 1,
                     DelayAfterBurst = 30, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -993,7 +764,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
@@ -1030,7 +801,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
                 },
                 Ejector = "ejector",
@@ -1057,7 +828,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Centurion Howitzer", // name of weapon in terminal
+                PartName = "Centurion Howitzer", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -1086,13 +857,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 0.1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 2,
                     MuzzleCheck = false,
@@ -1103,12 +885,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 40,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 0, //heat generated per shot
                     MaxHeat = 2000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -1116,7 +898,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 1,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "",
@@ -1130,7 +912,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "ExplosiveMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 200, green: 60, blue: 60, alpha: 1),
@@ -1168,7 +950,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
                 },
                 Ejector = "",
@@ -1195,7 +977,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Scylla Bomb Bay", // name of weapon in terminal
+                PartName = "Scylla Bomb Bay", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -1224,13 +1006,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -1241,12 +1034,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 80,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 600, 
-                    DelayUntilFire = 30, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -1254,8 +1047,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 5,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -1270,7 +1063,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "Smoke_LargeGunShot", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
@@ -1307,7 +1100,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
 					"muzzle_missile_2",
 					"muzzle_missile_3",
@@ -1404,7 +1197,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Charybdis Bomb Bay", // name of weapon in terminal
+                PartName = "Charybdis Bomb Bay", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
@@ -1433,13 +1226,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -1449,13 +1253,13 @@ namespace WeaponThread {
                     CheckForAnyWeapon = false, // if true, the check will fail if ANY gun is present, false only looks for this subtype
                 },
                 Loading = new LoadingDef {
-                    RateOfFire = 400,
-                    BarrelSpinRate = 0, 
+                    RateOfFire = 300,
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 300, 
-                    DelayUntilFire = 60, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 60, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -1463,8 +1267,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 71,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -1479,7 +1283,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
@@ -1516,7 +1320,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"Muzzle_1",
                 },
                 Ejector = "",
@@ -1543,7 +1347,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Glaive Heavy Cannon", // name of weapon in terminal
+                PartName = "Glaive Heavy Cannon", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -1572,13 +1376,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -1589,12 +1404,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 60,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 200, 
-                    DelayUntilFire = 0, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, 
                     HeatPerShot = 130, 
                     MaxHeat = 140000, 
                     Cooldown = .50f, 
@@ -1602,8 +1417,8 @@ namespace WeaponThread {
                     DegradeRof = true, 
                     ShotsInBurst = 6,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -1618,7 +1433,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "AkiadMuzzleFlash", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -1656,7 +1471,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_1",
 					"muzzle_2",
 					"muzzle_3",
@@ -1706,7 +1521,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Halberd Gatling Right", // name of weapon in terminal
+                PartName = "Halberd Gatling Right", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -1735,13 +1550,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -1752,21 +1578,21 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 80,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 250, 
-                    DelayUntilFire = 0, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, 
                     HeatPerShot = 30, 
                     MaxHeat = 140000, 
-                    Cooldown = 50f, 
+                    Cooldown = .50f, 
                     HeatSinkRate = 20, 
                     DegradeRof = true, 
                     ShotsInBurst = 24,
                     DelayAfterBurst = 250, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -1781,7 +1607,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -1819,7 +1645,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_1.",
 					"muzzle_2.",
 					"muzzle_3.",
@@ -1869,7 +1695,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Halberd Gatling Left", // name of weapon in terminal
+                PartName = "Halberd Gatling Left", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -1898,13 +1724,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -1915,21 +1752,21 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 80,
-                    BarrelSpinRate = 0,
                     BarrelsPerShot = 1,
-                    TrajectilesPerBarrel = 1,
+                    TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
-                    ReloadTime = 250,
-                    DelayUntilFire = 0,
-                    HeatPerShot = 30,
-                    MaxHeat = 140000,
-                    Cooldown = 50f,
-                    HeatSinkRate = 20,
-                    DegradeRof = true,
+                    ReloadTime = 250, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, 
+                    HeatPerShot = 30, 
+                    MaxHeat = 140000, 
+                    Cooldown = .50f, 
+                    HeatSinkRate = 20, 
+                    DegradeRof = false, 
                     ShotsInBurst = 24,
                     DelayAfterBurst = 250, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -1944,7 +1781,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -1982,7 +1819,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_1",
                 },
                 Ejector = "",
@@ -2009,7 +1846,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Receptor Plasma Launcher", // name of weapon in terminal
+                PartName = "Receptor Plasma Launcher", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -2038,13 +1875,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 0.1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 2,
                     MuzzleCheck = false,
@@ -2054,13 +1902,13 @@ namespace WeaponThread {
                     CheckForAnyWeapon = false, // if true, the check will fail if ANY gun is present, false only looks for this subtype
                 },
                 Loading = new LoadingDef {
-                    RateOfFire = 100,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
+                    RateOfFire = 100,     
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 600, //heat generated per shot
                     MaxHeat = 1500, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -2068,7 +1916,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "CoilGunPrefire",
@@ -2082,7 +1930,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "TestMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 200, blue: 100, alpha: 1),
@@ -2120,7 +1968,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_1",
                 },
                 Ejector = "",
@@ -2147,7 +1995,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Broadsword Bolt Cannon", // name of weapon in terminal
+                PartName = "Broadsword Bolt Cannon", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -2176,13 +2024,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 0.1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 2,
                     MuzzleCheck = false,
@@ -2193,12 +2052,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 100,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 150, //heat generated per shot
                     MaxHeat = 1200, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -2206,7 +2065,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "CoilGunPrefire",
@@ -2220,7 +2079,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "TestMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 500, green: 300, blue: 60, alpha: 1),
@@ -2258,7 +2117,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_1",
 					"muzzle_2",
                 },
@@ -2286,7 +2145,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Arbalest Plasma Repeater", // name of weapon in terminal
+                PartName = "Arbalest Plasma Repeater", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -2315,13 +2174,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 0.1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 2,
                     MuzzleCheck = false,
@@ -2331,13 +2201,13 @@ namespace WeaponThread {
                     CheckForAnyWeapon = false, // if true, the check will fail if ANY gun is present, false only looks for this subtype
                 },
                 Loading = new LoadingDef {
-                    RateOfFire = 400,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
+                    RateOfFire = 400,    
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 60, //heat generated per shot
                     MaxHeat = 2000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -2345,7 +2215,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "",
@@ -2359,7 +2229,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "TestMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 0, green: 10, blue: 200, alpha: 1),
@@ -2397,7 +2267,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
 					"muzzle_missile_2",
                 },
@@ -2425,7 +2295,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Chimera Heavy Flamer", // name of weapon in terminal
+                PartName = "Chimera Heavy Flamer", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -2454,13 +2324,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 0.1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 2,
                     MuzzleCheck = false,
@@ -2471,12 +2352,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 3600,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 2,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 300, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 0, //heat generated per shot
                     MaxHeat = 10000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -2484,7 +2365,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "",
@@ -2498,7 +2379,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "ChimeraFire", // Smoke_LargeGunShot
                         Color = Color(red: 0, green: 10, blue: 200, alpha: 1),
@@ -2529,14 +2410,14 @@ namespace WeaponThread {
                 MountPoints = new[] {
                     new MountPointDef {
                         SubtypeId = "HeavyPlasmaCannon",
-                        MuzzlePartId = "None",
-                        AzimuthPartId = "None",
-                        ElevationPartId = "None",
+                        MuzzlePartId = "MissileTurretBarrels",
+                        AzimuthPartId = "MissileTurretBase1",
+                        ElevationPartId = "MissileTurretBarrels",
                         DurabilityMod = 0.25f,
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_1",
                 },
                 Ejector = "",
@@ -2563,10 +2444,10 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Talon Heavy Plasma Cannon", // name of weapon in terminal
+                PartName = "Talon Heavy Plasma Cannon", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
-                AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
+                AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
                 DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                 AddToleranceToTracking = false,
                 CanShootSubmerged = false,
@@ -2578,27 +2459,38 @@ namespace WeaponThread {
                     EnableOverload = false,
                 },
                 Ai = new AiDef {
-                    TrackTargets = false,
-                    TurretAttached = false,
-                    TurretController = false,
-                    PrimaryTracking = false,
-                    LockOnFocus = false,
-                    SuppressFire = false,
+                    TrackTargets = true,
+                    TurretAttached = true,
+                    TurretController = true,
+                    PrimaryTracking = true,
+                    LockOnFocus = true,
+                    SuppressFire = true,
                 },
                 HardWare = new HardwareDef {
-                    RotateRate = 0,
-                    ElevateRate = 0,
-                    MinAzimuth = 0,
-                    MaxAzimuth = 0,
-                    MinElevation = 0,
-                    MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 0.1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    RotateRate = 0.1f,
+                    ElevateRate = 0.1f,
+                    MinAzimuth = -180,
+                    MaxAzimuth = 180,
+                    MinElevation = -5,
+                    MaxElevation = 10,
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 2,
                     MuzzleCheck = false,
@@ -2608,13 +2500,13 @@ namespace WeaponThread {
                     CheckForAnyWeapon = false, // if true, the check will fail if ANY gun is present, false only looks for this subtype
                 },
                 Loading = new LoadingDef {
-                    RateOfFire = 60,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
+                    RateOfFire = 60,  
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 240, //heat generated per shot
                     MaxHeat = 2000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -2622,7 +2514,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "",
@@ -2636,7 +2528,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "TestMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 200, green: 60, blue: 60, alpha: 1),
@@ -2655,7 +2547,7 @@ namespace WeaponThread {
             Ammos = new [] {
                 HeavyPlasmaBolt,
             },
-             Animations= HeavyPlasmaCannon_Emissive
+             //Animations= HeavyPlasmaCannon_Emissive
             //Upgrades = UpgradeModules,
             // Don't edit below this line
         };
@@ -2674,7 +2566,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
                 },
                 Ejector = "",
@@ -2701,7 +2593,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Icarus Accelerator", // name of weapon in terminal
+                PartName = "Icarus Accelerator", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -2730,13 +2622,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 0.1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 2,
                     MuzzleCheck = false,
@@ -2747,12 +2650,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 20,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 90, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 90, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 600, //heat generated per shot
                     MaxHeat = 2000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -2760,7 +2663,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 1,
                     DelayAfterBurst = 240, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "CoilGunPrefire",
@@ -2774,7 +2677,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "TyphonPrefire", // Smoke_LargeGunShot
                         Color = Color(red: 200, green: 60, blue: 60, alpha: 1),
@@ -2812,7 +2715,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
                 },
                 Ejector = "",
@@ -2839,7 +2742,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Typhon Accelerator", // name of weapon in terminal
+                PartName = "Typhon Accelerator", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -2868,13 +2771,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 0.1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 2,
                     MuzzleCheck = false,
@@ -2885,12 +2799,13 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 50,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
+                    
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 60, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 300, //heat generated per shot
                     MaxHeat = 2000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -2898,7 +2813,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 1,
                     DelayAfterBurst = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "CoilGunPrefire",
@@ -2912,7 +2827,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "", // Smoke_LargeGunShot
                         Color = Color(red: 200, green: 60, blue: 60, alpha: 1),
@@ -2950,7 +2865,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle2",
                 },
                 Ejector = "",
@@ -2969,7 +2884,7 @@ namespace WeaponThread {
                 LockedSmartOnly = false, // Only fire at smart projectiles that are locked on to parent grid.
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
+                MaxTargetDistance = 5000, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
                 MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
                 TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
@@ -2977,7 +2892,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Thresher Single Missile Pod", // name of weapon in terminal
+                PartName = "Thresher Single Missile Pod", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
@@ -3006,13 +2921,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -3023,12 +2949,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 100,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 0, 
-                    DelayUntilFire = 40, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 40, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -3036,8 +2962,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 1,
                     DelayAfterBurst = 220, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -3052,7 +2978,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
@@ -3097,7 +3023,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
                 },
                 Ejector = "",
@@ -3116,7 +3042,7 @@ namespace WeaponThread {
                 LockedSmartOnly = false, // Only fire at smart projectiles that are locked on to parent grid.
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
+                MaxTargetDistance = 5000, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
                 MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
                 TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
@@ -3124,7 +3050,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Crusader Heavy Missile Tube", // name of weapon in terminal
+                PartName = "Crusader Heavy Missile Tube", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
@@ -3153,13 +3079,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 4f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -3170,12 +3107,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 100,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 600, 
-                    DelayUntilFire = 240, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 240, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -3183,8 +3120,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 1,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -3199,7 +3136,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 2),
@@ -3236,7 +3173,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
                 },
                 Ejector = "",
@@ -3255,7 +3192,7 @@ namespace WeaponThread {
                 LockedSmartOnly = false, // Only fire at smart projectiles that are locked on to parent grid.
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
+                MaxTargetDistance = 5000, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
                 MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
                 TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
@@ -3263,7 +3200,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Crusader Heavy Missile Open Launcher", // name of weapon in terminal
+                PartName = "Crusader Heavy Missile Open Launcher", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
@@ -3292,13 +3229,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1.3f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -3309,12 +3257,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 600,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 600, 
-                    DelayUntilFire = 0, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -3322,8 +3270,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 1,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -3338,7 +3286,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 2),
@@ -3375,7 +3323,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
                 },
                 Ejector = "",
@@ -3394,7 +3342,7 @@ namespace WeaponThread {
                 LockedSmartOnly = false, // Only fire at smart projectiles that are locked on to parent grid.
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
+                MaxTargetDistance = 5000, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
                 MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
                 TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
@@ -3402,7 +3350,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Crusader Heavy Missile Open Launcher (Static)", // name of weapon in terminal
+                PartName = "Crusader Heavy Missile Open Launcher (Static)", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
@@ -3431,13 +3379,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1.3f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -3448,12 +3407,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 600,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 600, 
-                    DelayUntilFire = 240, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 240, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -3461,8 +3420,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 1,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -3477,7 +3436,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 2),
@@ -3500,7 +3459,6 @@ namespace WeaponThread {
             // Don't edit below this line
         };
 		
-		
 		WeaponDefinition ThresherLauncher => new WeaponDefinition {
 
             Assignments = new ModelAssignmentsDef 
@@ -3515,7 +3473,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle1",
 					"muzzle2",
                 },
@@ -3535,7 +3493,7 @@ namespace WeaponThread {
                 LockedSmartOnly = false, // Only fire at smart projectiles that are locked on to parent grid.
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
+                MaxTargetDistance = 5000, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
                 MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
                 TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
@@ -3543,7 +3501,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Thresher Dual Missile Pod", // name of weapon in terminal
+                PartName = "Thresher Dual Missile Pod", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
@@ -3572,13 +3530,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -3589,12 +3558,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 100,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 0, 
-                    DelayUntilFire = 40, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 40, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -3602,8 +3571,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 2,
                     DelayAfterBurst = 180, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -3618,7 +3587,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
@@ -3655,7 +3624,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle1",
 					"muzzle2",
 					"muzzle3",
@@ -3677,7 +3646,7 @@ namespace WeaponThread {
                 LockedSmartOnly = false, // Only fire at smart projectiles that are locked on to parent grid.
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
+                MaxTargetDistance = 5000, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
                 MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
                 TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
@@ -3685,7 +3654,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Thresher Dual Stack Missile Pod", // name of weapon in terminal
+                PartName = "Thresher Dual Stack Missile Pod", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -3714,13 +3683,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -3731,12 +3711,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 100,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 0, 
-                    DelayUntilFire = 40, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 40, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -3744,8 +3724,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 4,
                     DelayAfterBurst = 240, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -3760,7 +3740,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
@@ -3791,7 +3771,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "SaberTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -3800,7 +3780,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
 					"muzzle_missile_002",
@@ -3826,7 +3806,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Saber Turret", // name of weapon in terminal
+                PartName = "Saber Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -3855,13 +3835,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -10,
                     MaxElevation = 70,
-                    FixedOffset = false,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -3870,20 +3862,20 @@ namespace WeaponThread {
                 Loading = new LoadingDef
                 {
                     RateOfFire = 120,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 200, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 10, //heat generated per shot
                     MaxHeat = 1000000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
-                    HeatSinkRate = 5, //amount of heat lost per second
-                    DegradeRof = true, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
+                    HeatSinkRate = 10, //amount of heat lost per second
+                    DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 4,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false,
+                    FireFull = false,
                 },
                 Audio = new HardPointAudioDef
                 {
@@ -3897,7 +3889,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef
                 {
-                    Barrel1 = new ParticleDef
+                    Effect1 = new ParticleDef
                     {
                         Name = "AkiadFlash", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -3911,7 +3903,7 @@ namespace WeaponThread {
                             Scale = 1.0f,
                         },
                     },
-                    Barrel2 = new ParticleDef
+                    Effect2 = new ParticleDef
                     {
                         Name = "AkiadFlash",//Muzzle_Flash_Large
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -3943,7 +3935,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "LancerTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "LancerBarrel",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -3952,7 +3944,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
 					"muzzle_missile_002",
@@ -3980,7 +3972,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Lancer Turret", // name of weapon in terminal
+                PartName = "Lancer Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -4009,13 +4001,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -10,
                     MaxElevation = 70,
-                    FixedOffset = false,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -4023,21 +4027,21 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 600,
-                    BarrelSpinRate = 0,
                     BarrelsPerShot = 4,
-                    TrajectilesPerBarrel = 1,
+                    TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
-                    ReloadTime = 180,
-                    DelayUntilFire = 0,
-                    HeatPerShot = 120,
-                    MaxHeat = 20000,
-                    Cooldown = 30,
-                    HeatSinkRate = 20,
-                    DegradeRof = true,
+                    ReloadTime = 180, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, 
+                    HeatPerShot = 120, 
+                    MaxHeat = 20000, 
+                    Cooldown = 30, 
+                    HeatSinkRate = 20, 
+                    DegradeRof = true, 
                     ShotsInBurst = 2,
-                    DelayAfterBurst = 20,
-                    FireFullBurst = true,
-                    GiveUpAfterBurst = false,
+                    DelayAfterBurst = 20, 
+                    FireFull = true,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -4052,7 +4056,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "AkiadFlash", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -4083,7 +4087,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "ChimeraTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -4093,7 +4097,7 @@ namespace WeaponThread {
 					new MountPointDef
                     {
                         SubtypeId = "LargeInteriorChimeraTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -4102,7 +4106,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
 					"muzzle_missile_2",
                 },
@@ -4130,7 +4134,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Chimera Heavy Flamer Turret", // name of weapon in terminal
+                PartName = "Chimera Heavy Flamer Turret", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -4159,13 +4163,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -10,
                     MaxElevation = 80,
-                    FixedOffset = false,
-                    InventorySize = 3.24f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -4173,12 +4189,13 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 3600,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
+                    
                     BarrelsPerShot = 2,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 300, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 0, //heat generated per shot
                     MaxHeat = 10000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -4186,7 +4203,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "",
@@ -4200,7 +4217,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "ChimeraFire", // Smoke_LargeGunShot
                         Color = Color(red: 0, green: 10, blue: 200, alpha: 1),
@@ -4238,7 +4255,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
                 },
@@ -4263,7 +4280,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Glaive Heavy Turret", // name of weapon in terminal
+                PartName = "Glaive Heavy Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -4292,13 +4309,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -10,
                     MaxElevation = 70,
-                    FixedOffset = false,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -4306,21 +4335,21 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 100,
-                    BarrelSpinRate = 0,
                     BarrelsPerShot = 1,
-                    TrajectilesPerBarrel = 1,
+                    TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
-                    ReloadTime = 200,
-                    DelayUntilFire = 0,
-                    HeatPerShot = 40,
-                    MaxHeat = 14000,
-                    Cooldown = .10f,
-                    HeatSinkRate = 20,
-                    DegradeRof = true,
+                    ReloadTime = 200, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, 
+                    HeatPerShot = 40, 
+                    MaxHeat = 14000, 
+                    Cooldown = 10, 
+                    HeatSinkRate = 20, 
+                    DegradeRof = true, 
                     ShotsInBurst = 6,
-                    DelayAfterBurst = 0,
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    DelayAfterBurst = 0, 
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -4335,7 +4364,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "AkiadMuzzleFlash", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -4373,7 +4402,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
 					"muzzle_missile_002",
@@ -4401,7 +4430,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Thresher Dual Turret", // name of weapon in terminal
+                PartName = "Thresher Dual Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -4429,12 +4458,24 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -15,
                     MaxElevation = 70,
-                    FixedOffset = false,
-                    InventorySize = 0.25f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -4445,12 +4486,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 100,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 0, 
-                    DelayUntilFire = 40, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 40, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -4458,8 +4499,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 4,
                     DelayAfterBurst = 240, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -4474,7 +4515,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
@@ -4505,7 +4546,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "PlasmaRepeaterTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -4514,7 +4555,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
 					"muzzle_missile_002",
@@ -4540,7 +4581,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Arbalest Plasma Repeater Turret", // name of weapon in terminal
+                PartName = "Arbalest Plasma Repeater Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -4569,13 +4610,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -10,
                     MaxElevation = 80,
-                    FixedOffset = false,
-                    InventorySize = 3.24f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -4583,12 +4636,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 400,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 60, //heat generated per shot
                     MaxHeat = 2000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -4596,7 +4649,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "",
@@ -4610,7 +4663,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "TestMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 0, green: 10, blue: 200, alpha: 1),
@@ -4650,7 +4703,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_1",
                 },
@@ -4675,7 +4728,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Raptor Light Turret", // name of weapon in terminal
+                PartName = "Raptor Light Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -4704,13 +4757,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -20,
                     MaxElevation = 80,
-                    FixedOffset = false,
-                    InventorySize = 3.24f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -4718,21 +4783,21 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 300,
-                    BarrelSpinRate = 3600,
                     BarrelsPerShot = 1,
-                    TrajectilesPerBarrel = 1,
+                    TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
-                    ReloadTime = 600,
-                    DelayUntilFire = 0,
-                    HeatPerShot = 20,
-                    MaxHeat = 1000,
-                    Cooldown = 2f,
-                    HeatSinkRate = 10,
-                    DegradeRof = true,
+                    ReloadTime = 600, 
+					MagsToLoad = 1, // Number of physical magazines to consume on reload.
+                    DelayUntilFire = 0, 
+                    HeatPerShot = 15, 
+                    MaxHeat = 10000, 
+                    Cooldown = .2f, 
+                    HeatSinkRate = 10, 
+                    DegradeRof = true, 
                     ShotsInBurst = 1,
-                    DelayAfterBurst = 0,
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    DelayAfterBurst = 0, 
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -4747,7 +4812,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "AkiadFlash", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -4761,7 +4826,7 @@ namespace WeaponThread {
                             Scale = .5f,
                         },
                     },
-					Barrel2 = new ParticleDef //FIXTHIS
+					Effect2 = new ParticleDef //FIXTHIS
                     {
                         Name = "Smoke_Construction", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -4793,7 +4858,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "OrionLauncher",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -4802,7 +4867,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
 					"muzzle_missile_002",
@@ -4846,7 +4911,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Orion Launcher", // name of weapon in terminal
+                PartName = "Orion Launcher", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -4875,13 +4940,25 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = -30,
                     MaxElevation = 30,
-                    FixedOffset = false,
-                    InventorySize = 3.24f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -4889,12 +4966,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 120,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 0, //heat generated per shot
                     MaxHeat = 2000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -4902,7 +4979,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "",
@@ -4916,7 +4993,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "TestMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 100, green: 60, blue: 10, alpha: 1),
@@ -4948,7 +5025,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "KrakenTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -4957,7 +5034,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_1",
 					"muzzle_missile_2",
@@ -4986,7 +5063,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Hydra ATGM (Turret)", // name of weapon in terminal
+                PartName = "Hydra ATGM (Turret)", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -5015,13 +5092,25 @@ namespace WeaponThread {
                     MaxAzimuth = 45,
                     MinElevation = -10,
                     MaxElevation = 45,
-                    FixedOffset = false,
-                    InventorySize = 3.24f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -5029,12 +5118,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 80,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 300, 
-                    DelayUntilFire = 30, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -5042,8 +5131,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 5,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -5058,7 +5147,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "Smoke_LargeGunShot", // Smoke_LargeGunShot
                         Color = Color(red: 100, green: 60, blue: 10, alpha: 1),
@@ -5090,7 +5179,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "ReceptorTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -5099,7 +5188,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
                 },
@@ -5124,7 +5213,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Receptor Plasma Launcher Turret", // name of weapon in terminal
+                PartName = "Receptor Plasma Launcher Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -5153,13 +5242,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -10,
                     MaxElevation = 80,
-                    FixedOffset = false,
-                    InventorySize = 3.24f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -5167,12 +5268,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 100,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 600, //heat generated per shot
                     MaxHeat = 1500, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -5180,7 +5281,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "CoilGunPrefire",
@@ -5194,7 +5295,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "TestMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 200, blue: 100, alpha: 1),
@@ -5252,7 +5353,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
 				},
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_1",
 					"muzzle_8",
 					"muzzle_7",
@@ -5286,7 +5387,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Raptor Gatling Gun", // name of weapon in terminal
+                PartName = "Raptor Gatling Gun", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -5315,13 +5416,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 3,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -5332,21 +5444,21 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 300,
-                    BarrelSpinRate = 3600,
                     BarrelsPerShot = 1,
-                    TrajectilesPerBarrel = 1,
+                    TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
-                    ReloadTime = 600,
-                    DelayUntilFire = 0,
-                    HeatPerShot = 15,
-                    MaxHeat = 200,
-                    Cooldown = 2f,
-                    HeatSinkRate = 10,
-                    DegradeRof = true,
+                    ReloadTime = 600, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, 
+                    HeatPerShot = 15, 
+                    MaxHeat = 2000, 
+                    Cooldown = .2f, 
+                    HeatSinkRate = 10, 
+                    DegradeRof = true, 
                     ShotsInBurst = 1,
-                    DelayAfterBurst = 0,
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    DelayAfterBurst = 0, 
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -5361,7 +5473,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "AkiadFlash", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -5375,7 +5487,7 @@ namespace WeaponThread {
                             Scale = 1,
                         },
                     },
-					Barrel2 = new ParticleDef //FIXTHIS
+					Effect2 = new ParticleDef //FIXTHIS
                     {
                         Name = "Smoke_Construction", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -5413,7 +5525,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_1",
                 },
                 Ejector = "",
@@ -5440,7 +5552,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Laser Designator", // name of weapon in terminal
+                PartName = "Laser Designator", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Off, // Off, Basic, Accurate, Advanced
@@ -5469,14 +5581,25 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = .1f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 2,
                     MuzzleCheck = false,
@@ -5485,12 +5608,13 @@ namespace WeaponThread {
                 Loading = new LoadingDef
                 {
                     RateOfFire = 3600,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
+                    
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 0, //heat generated per shot
                     MaxHeat = 1200, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -5498,7 +5622,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false,
+                    FireFull = false,
                 },
                 Audio = new HardPointAudioDef
                 {
@@ -5512,7 +5636,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef
                 {
-                    Barrel1 = new ParticleDef //FIXTHIS
+                    Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "", // Smoke_LargeGunShot
                         Color = Color(red: 20, green: 20, blue: 40, alpha: 1),
@@ -5526,7 +5650,7 @@ namespace WeaponThread {
                             Scale = 1f,
                         },
                     },
-                    Barrel2 = new ParticleDef //FIXTHIS
+                    Effect2 = new ParticleDef //FIXTHIS
                     {
                         Name = "", // Smoke_LargeGunShot
                         Color = Color(red: 5, green: 40, blue: 40, alpha: 1),
@@ -5557,7 +5681,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "LaserDesignatorTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -5566,7 +5690,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
                 },
@@ -5586,12 +5710,12 @@ namespace WeaponThread {
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
                 TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
-				MaxTargetDistance = 5000,
+				MaxTargetDistance = 15000,
                 StopTrackingSpeed = 1000, // do not track target threats traveling faster than this speed
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Laser Designator Turret", // name of weapon in terminal
+                PartName = "Laser Designator Turret", // name of weapon in terminal
                 DeviateShotAngle = 0f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -5620,13 +5744,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -10,
                     MaxElevation = 90,
-                    FixedOffset = false,
-                    InventorySize = 3.24f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 2,
                     MuzzleCheck = false,
@@ -5635,12 +5771,13 @@ namespace WeaponThread {
                 Loading = new LoadingDef
                 {
                     RateOfFire = 3600,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
+                    
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 0, //heat generated per shot
                     MaxHeat = 1200, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -5648,7 +5785,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false,
+                    FireFull = false,
                 },
                 Audio = new HardPointAudioDef
                 {
@@ -5662,7 +5799,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef
                 {
-                    Barrel1 = new ParticleDef //FIXTHIS
+                    Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "", // Smoke_LargeGunShot
                         Color = Color(red: 20, green: 20, blue: 40, alpha: 1),
@@ -5676,7 +5813,7 @@ namespace WeaponThread {
                             Scale = 1f,
                         },
                     },
-                    Barrel2 = new ParticleDef //FIXTHIS
+                    Effect2 = new ParticleDef //FIXTHIS
                     {
                         Name = "", // Smoke_LargeGunShot
                         Color = Color(red: 5, green: 40, blue: 40, alpha: 1),
@@ -5707,7 +5844,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "Lotus",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -5716,7 +5853,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_1",
 					"muzzle_missile_2",
@@ -5783,7 +5920,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Lotus Mine Layer", // name of weapon in terminal
+                PartName = "Lotus Mine Layer", // name of weapon in terminal
                 DeviateShotAngle = 10f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -5812,13 +5949,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -20,
                     MaxElevation = 20,
-                    FixedOffset = false,
-                    InventorySize = 3.24f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 2,
+                    ConstructPartCap = 2,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 2,
                     MuzzleCheck = false,
@@ -5827,12 +5976,12 @@ namespace WeaponThread {
                 Loading = new LoadingDef
                 {
                     RateOfFire = 500,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 2100, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 0, //heat generated per shot
                     MaxHeat = 1200, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -5840,7 +5989,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false,
+                    FireFull = false,
                 },
                 Audio = new HardPointAudioDef
                 {
@@ -5854,7 +6003,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef
                 {
-                    Barrel1 = new ParticleDef //FIXTHIS
+                    Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 20, green: 20, blue: 40, alpha: 1),
@@ -5868,7 +6017,7 @@ namespace WeaponThread {
                             Scale = 1f,
                         },
                     },
-                    Barrel2 = new ParticleDef //FIXTHIS
+                    Effect2 = new ParticleDef //FIXTHIS
                     {
                         Name = "", // Smoke_LargeGunShot
                         Color = Color(red: 5, green: 40, blue: 40, alpha: 1),
@@ -5899,7 +6048,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "SentinelTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "SentinelBarrel",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -5909,7 +6058,7 @@ namespace WeaponThread {
 					new MountPointDef
                     {
                         SubtypeId = "SmallSentinelTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "SentinelBarrel",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -5917,7 +6066,7 @@ namespace WeaponThread {
                         IconName = "None",
                     },
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"Sentinelmuzzle_1",
 					"Sentinelmuzzle_8",
@@ -5950,7 +6099,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Sentinel Turret", // name of weapon in terminal
+                PartName = "Sentinel Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.1f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -5979,13 +6128,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -10,
                     MaxElevation = 70,
-                    FixedOffset = false,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 3,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -5993,12 +6154,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 3600,
-                    BarrelSpinRate = 3600, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 600, 
-                    DelayUntilFire = 0, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, 
                     HeatPerShot = 1, 
                     MaxHeat = 5000, 
                     Cooldown = .2f, 
@@ -6006,8 +6167,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 1,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -6022,7 +6183,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "AkiadFlash", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -6036,7 +6197,7 @@ namespace WeaponThread {
                             Scale = 2,
                         },
                     },
-					Barrel2 = new ParticleDef //FIXTHIS
+					Effect2 = new ParticleDef //FIXTHIS
                     {
                         Name = "Smoke_Construction", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -6067,7 +6228,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "CerberusTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -6075,7 +6236,7 @@ namespace WeaponThread {
                         IconName = "None",
                     },
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_1.002",
 					"muzzle_missile_1",
@@ -6102,7 +6263,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Cerberus Turret", // name of weapon in terminal
+                PartName = "Cerberus Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.1f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -6131,13 +6292,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = 0,
                     MaxElevation = 30,
-                    FixedOffset = false,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -6145,12 +6318,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 400,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 0, //heat generated per shot
                     MaxHeat = 2000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -6158,7 +6331,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 3,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = true, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = true, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "",
@@ -6172,7 +6345,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "ExplosiveMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 200, green: 60, blue: 60, alpha: 1),
@@ -6196,6 +6369,612 @@ namespace WeaponThread {
             // Don't edit below this line
         };
 		
+		WeaponDefinition WarhammerTurret => new WeaponDefinition {
+            Assignments = new ModelAssignmentsDef
+            {
+                MountPoints = new[]
+                {
+                    new MountPointDef
+                    {
+                        SubtypeId = "WarhammerTurret",
+                        
+                        MuzzlePartId = "MissileTurretBarrels",
+                        AzimuthPartId = "MissileTurretBase1",
+                        ElevationPartId = "MissileTurretBarrels",
+                        DurabilityMod = 1f,
+                        IconName = "None",
+                    },
+                },
+                Muzzles = new []
+                {
+					"muzzle_missile_1",
+                },
+            },
+            Targeting = new TargetingDef
+            {
+                Threats = new[]
+                {
+                    Grids, Characters, Projectiles, Meteors, // threats percieved automatically without changing menu settings
+                },
+                SubSystems = new[]
+                {
+                    Thrust, Utility, Offense, Power, Production, Any, // subsystems the gun targets
+                },
+                ClosestFirst = false, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
+                MinimumDiameter = 5, // 0 = unlimited, Minimum radius of threat to engage.
+                MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
+                TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
+                TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
+				MaxTargetDistance = 5000,
+                StopTrackingSpeed = 1000, // do not track target threats traveling faster than this speed
+            },
+            HardPoint = new HardPointDef
+            {
+                PartName = "Warhammer Turret", // name of weapon in terminal
+                DeviateShotAngle = 0.1f,
+                AimingTolerance = 1f, // 0 - 180 firing angle
+                AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
+                DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+
+                Ui = new UiDef
+                {
+                    RateOfFire = true,
+                    DamageModifier = false,
+                    ToggleGuidance = false,
+                    EnableOverload = false,
+                },
+                Ai = new AiDef
+                {
+                    TrackTargets = true,
+                    TurretAttached = true,
+                    TurretController = true,
+                    PrimaryTracking = true,
+                    LockOnFocus = false,
+                },
+                HardWare = new HardwareDef
+                {
+                    RotateRate = 0.01f,
+                    ElevateRate = 0.01f,
+                    MinAzimuth = -180,
+                    MaxAzimuth = 180,
+                    MinElevation = -15,
+                    MaxElevation = 45,
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
+                },
+                Other = new OtherDef
+                {
+                    ConstructPartCap = 0,
+                    RotateBarrelAxis = 0,
+                    EnergyPriority = 0,
+                    MuzzleCheck = false,
+                    Debug = false,
+                },
+                Loading = new LoadingDef {
+                    RateOfFire = 400,
+                    
+                    BarrelsPerShot = 1,
+                    TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
+                    SkipBarrels = 0,
+                    ReloadTime = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    HeatPerShot = 0, //heat generated per shot
+                    MaxHeat = 2000, //max heat before weapon enters cooldown (70% of max heat)
+                    Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
+                    HeatSinkRate = 60, //amount of heat lost per second
+                    DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
+                    ShotsInBurst = 3,
+                    DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    FireFull = true, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                },
+                Audio = new HardPointAudioDef {
+                    PreFiringSound = "",
+                    FiringSound = "CenturianFire", // WepShipGatlingShot
+                    FiringSoundPerShot = true,
+                    ReloadSound = "CenturianReload",
+                    NoAmmoSound = "ArcWepShipGatlingNoAmmo",
+                    HardPointRotationSound = "WepTurretGatlingRotate",
+                    BarrelRotationSound = "WepShipGatlingRotation",
+                    FireSoundEndDelay = 120, // Measured in game ticks(6 = 100ms, 60 = 1 seconds, etc..).
+                },
+                Graphics = new HardPointParticleDef {
+
+					Effect1 = new ParticleDef //FIXTHIS
+                    {
+                        Name = "ExplosiveMuzzle", // Smoke_LargeGunShot
+                        Color = Color(red: 200, green: 60, blue: 60, alpha: 1),
+                        Offset = Vector(x: 0, y: 0, z: 0.25f),
+                        Extras = new ParticleOptionDef
+                        {
+                            Loop = false,
+                            Restart = true,
+                            MaxDistance = 500,
+                            MaxDuration = 1,
+                            Scale = .5f,
+                        },
+                    },
+                },
+            },
+            Ammos = new [] {
+                CerberusStack,HEShrapnel,
+            },
+             //Animations= Cerberus_Recoil
+            //Upgrades = UpgradeModules,
+            // Don't edit below this line
+        };
+		
+		WeaponDefinition VXGaussTurret => new WeaponDefinition {
+            Assignments = new ModelAssignmentsDef
+            {
+                MountPoints = new[]
+                {
+                    new MountPointDef
+                    {
+                        SubtypeId = "VXGaussTurret",
+                        
+                        MuzzlePartId = "MissileTurretBarrels",
+                        AzimuthPartId = "MissileTurretBase1",
+                        ElevationPartId = "MissileTurretBarrels",
+                        DurabilityMod = 1f,
+                        IconName = "None",
+                    },
+                },
+                Muzzles = new []
+                {
+					"muzzle_missile_1",
+                },
+				Ejector = "",
+                Scope = "camera", //Where line of sight checks are performed from must be clear of block collision
+            },
+            Targeting = new TargetingDef
+            {
+                Threats = new[]
+                {
+                    Grids, Characters, Projectiles, Meteors, // threats percieved automatically without changing menu settings
+                },
+                SubSystems = new[]
+                {
+                    Thrust, Utility, Offense, Power, Production, Any, // subsystems the gun targets
+                },
+                ClosestFirst = false, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
+                MinimumDiameter = 5, // 0 = unlimited, Minimum radius of threat to engage.
+                MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
+                TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
+                TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
+				MaxTargetDistance = 5000,
+                StopTrackingSpeed = 1000, // do not track target threats traveling faster than this speed
+            },
+            HardPoint = new HardPointDef
+            {
+                PartName = "VX Gauss Turret", // name of weapon in terminal
+                DeviateShotAngle = 0.1f,
+                AimingTolerance = 15f, // 0 - 180 firing angle
+                AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
+                DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+
+                Ui = new UiDef
+                {
+                    RateOfFire = false,
+                    DamageModifier = false,
+                    ToggleGuidance = false,
+                    EnableOverload = false,
+                },
+                Ai = new AiDef
+                {
+                    TrackTargets = true,
+                    TurretAttached = true,
+                    TurretController = true,
+                    PrimaryTracking = true,
+                    LockOnFocus = true,
+                },
+                HardWare = new HardwareDef
+                {
+                    RotateRate = 0.005f,
+                    ElevateRate = 0.008f,
+                    MinAzimuth = -180,
+                    MaxAzimuth = 180,
+                    MinElevation = -15,
+                    MaxElevation = 45,
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
+                },
+                Other = new OtherDef
+                {
+                    ConstructPartCap = 0,
+                    RotateBarrelAxis = 0,
+                    EnergyPriority = 0,
+                    MuzzleCheck = false,
+                    Debug = false,
+                },
+                Loading = new LoadingDef {
+                    RateOfFire = 400,
+                    BarrelsPerShot = 1,
+                    TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
+                    SkipBarrels = 0,
+                    ReloadTime = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    HeatPerShot = 0, //heat generated per shot
+                    MaxHeat = 2000, //max heat before weapon enters cooldown (70% of max heat)
+                    Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
+                    HeatSinkRate = 60, //amount of heat lost per second
+                    DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
+                    ShotsInBurst = 1,
+                    DelayAfterBurst = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                },
+                Audio = new HardPointAudioDef {
+                    PreFiringSound = "",
+                    FiringSound = "VXGaussShot", // WepShipGatlingShot
+                    FiringSoundPerShot = true,
+                    ReloadSound = "VXGaussReload",
+                    NoAmmoSound = "ArcWepShipGatlingNoAmmo",
+                    HardPointRotationSound = "WepTurretGatlingRotate",
+                    BarrelRotationSound = "WepShipGatlingRotation",
+                    FireSoundEndDelay = 120, // Measured in game ticks(6 = 100ms, 60 = 1 seconds, etc..).
+                },
+                Graphics = new HardPointParticleDef {
+
+					Effect1 = new ParticleDef //FIXTHIS
+                    {
+                        Name = "ExplosiveMuzzle", // Smoke_LargeGunShot
+                        Color = Color(red: 200, green: 60, blue: 60, alpha: 1),
+                        Offset = Vector(x: 0, y: 0, z: 0f),
+                        Extras = new ParticleOptionDef
+                        {
+                            Loop = false,
+                            Restart = true,
+                            MaxDistance = 500,
+                            MaxDuration = 1,
+                            Scale = .5f,
+                        },
+                    },
+                },
+            },
+            Ammos = new [] {
+                VXGaussRound,HEShrapnel,
+            },
+             //Animations= Cerberus_Recoil
+            //Upgrades = UpgradeModules,
+            // Don't edit below this line
+        };
+		
+		WeaponDefinition DualVXGaussTurret => new WeaponDefinition {
+            Assignments = new ModelAssignmentsDef
+            {
+                MountPoints = new[]
+                {
+                    new MountPointDef
+                    {
+                        SubtypeId = "DualVXGaussTurret",
+                        
+                        MuzzlePartId = "MissileTurretBarrels",
+                        AzimuthPartId = "MissileTurretBase1",
+                        ElevationPartId = "MissileTurretBarrels",
+                        DurabilityMod = 1f,
+                        IconName = "None",
+                    },
+                },
+                Muzzles = new []
+                {
+					"muzzle_missile_1",
+					"muzzle_missile_2",
+                },
+				Ejector = "",
+                Scope = "camera", //Where line of sight checks are performed from must be clear of block collision
+            },
+            Targeting = new TargetingDef
+            {
+                Threats = new[]
+                {
+                    Grids, Characters, Projectiles, Meteors, // threats percieved automatically without changing menu settings
+                },
+                SubSystems = new[]
+                {
+                    Thrust, Utility, Offense, Power, Production, Any, // subsystems the gun targets
+                },
+                ClosestFirst = false, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
+                MinimumDiameter = 5, // 0 = unlimited, Minimum radius of threat to engage.
+                MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
+                TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
+                TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
+				MaxTargetDistance = 5000,
+                StopTrackingSpeed = 1000, // do not track target threats traveling faster than this speed
+            },
+            HardPoint = new HardPointDef
+            {
+                PartName = "Dual VX Gauss Turret", // name of weapon in terminal
+                DeviateShotAngle = 0.01f,
+                AimingTolerance = 15f, // 0 - 180 firing angle
+                AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
+                DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+
+                Ui = new UiDef
+                {
+                    RateOfFire = false,
+                    DamageModifier = false,
+                    ToggleGuidance = false,
+                    EnableOverload = false,
+                },
+                Ai = new AiDef
+                {
+                    TrackTargets = true,
+                    TurretAttached = true,
+                    TurretController = true,
+                    PrimaryTracking = true,
+                    LockOnFocus = true,
+                },
+                HardWare = new HardwareDef
+                {
+                    RotateRate = 0.005f,
+                    ElevateRate = 0.008f,
+                    MinAzimuth = -180,
+                    MaxAzimuth = 180,
+                    MinElevation = -15,
+                    MaxElevation = 45,
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
+                },
+                Other = new OtherDef
+                {
+                    ConstructPartCap = 0,
+                    RotateBarrelAxis = 0,
+                    EnergyPriority = 0,
+                    MuzzleCheck = false,
+                    Debug = false,
+                },
+                Loading = new LoadingDef {
+                    RateOfFire = 800,
+                    BarrelsPerShot = 2,
+                    TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
+                    SkipBarrels = 0,
+                    ReloadTime = 360, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 2, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 120, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    HeatPerShot = 0, //heat generated per shot
+                    MaxHeat = 2000, //max heat before weapon enters cooldown (70% of max heat)
+                    Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
+                    HeatSinkRate = 60, //amount of heat lost per second
+                    DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
+                    ShotsInBurst = 0,
+                    DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    FireFull = true, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                },
+                Audio = new HardPointAudioDef {
+                    PreFiringSound = "",
+                    FiringSound = "VXGaussShot", // WepShipGatlingShot
+                    FiringSoundPerShot = true,
+                    ReloadSound = "VXGaussReload",
+                    NoAmmoSound = "ArcWepShipGatlingNoAmmo",
+                    HardPointRotationSound = "WepTurretGatlingRotate",
+                    BarrelRotationSound = "WepShipGatlingRotation",
+                    FireSoundEndDelay = 120, // Measured in game ticks(6 = 100ms, 60 = 1 seconds, etc..).
+                },
+                Graphics = new HardPointParticleDef {
+
+					Effect1 = new ParticleDef //FIXTHIS
+                    {
+                        Name = "ExplosiveMuzzle", // Smoke_LargeGunShot
+                        Color = Color(red: 200, green: 60, blue: 60, alpha: 1),
+                        Offset = Vector(x: 0, y: 0, z: 0.25f),
+                        Extras = new ParticleOptionDef
+                        {
+                            Loop = false,
+                            Restart = true,
+                            MaxDistance = 500,
+                            MaxDuration = 1,
+                            Scale = .5f,
+                        },
+                    },
+                },
+            },
+            Ammos = new [] {
+                VXGaussRound,HEShrapnel,
+            },
+             //Animations= Cerberus_Recoil
+            //Upgrades = UpgradeModules,
+            // Don't edit below this line
+        };
+		
+		WeaponDefinition BastionTurret => new WeaponDefinition {
+            Assignments = new ModelAssignmentsDef
+            {
+                MountPoints = new[]
+                {
+                    new MountPointDef
+                    {
+                        SubtypeId = "BastionTurretSG",
+                        MuzzlePartId = "MissileTurretBarrels",
+                        AzimuthPartId = "MissileTurretBase1",
+                        ElevationPartId = "MissileTurretBarrels",
+                        DurabilityMod = 1f,
+                        IconName = "None",
+                    },
+					new MountPointDef
+                    {
+                        SubtypeId = "BastionTurretLG",
+                        MuzzlePartId = "MissileTurretBarrels",
+                        AzimuthPartId = "MissileTurretBase1",
+                        ElevationPartId = "MissileTurretBarrels",
+                        DurabilityMod = 1f,
+                        IconName = "None",
+                    },
+                },
+                Muzzles = new []
+                {
+					"muzzle_missile_1",
+                },
+				Ejector = "",
+                Scope = "LOSCamera", //Where line of sight checks are performed from must be clear of block collision
+            },
+            Targeting = new TargetingDef
+            {
+                Threats = new[]
+                {
+                    Grids, Characters, Projectiles, Meteors, // threats percieved automatically without changing menu settings
+                },
+                SubSystems = new[]
+                {
+                    Thrust, Utility, Offense, Power, Production, Any, // subsystems the gun targets
+                },
+                ClosestFirst = false, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
+                MinimumDiameter = 5, // 0 = unlimited, Minimum radius of threat to engage.
+                MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
+                TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
+                TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
+				MaxTargetDistance = 5000,
+                StopTrackingSpeed = 1000, // do not track target threats traveling faster than this speed
+            },
+            HardPoint = new HardPointDef
+            {
+                PartName = "Bastion Assault Cannon", // name of weapon in terminal
+                DeviateShotAngle = 0.01f,
+                AimingTolerance = 15f, // 0 - 180 firing angle
+                AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
+                DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+
+                Ui = new UiDef
+                {
+                    RateOfFire = false,
+                    DamageModifier = false,
+                    ToggleGuidance = false,
+                    EnableOverload = false,
+                },
+                Ai = new AiDef
+                {
+                    TrackTargets = true,
+                    TurretAttached = true,
+                    TurretController = true,
+                    PrimaryTracking = true,
+                    LockOnFocus = true,
+                },
+                HardWare = new HardwareDef
+                {
+                    RotateRate = 0.005f,
+                    ElevateRate = 0.008f,
+                    MinAzimuth = -180,
+                    MaxAzimuth = 180,
+                    MinElevation = -15,
+                    MaxElevation = 25,
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
+                },
+                Other = new OtherDef
+                {
+                    ConstructPartCap = 0,
+                    RotateBarrelAxis = 0,
+                    EnergyPriority = 0,
+                    MuzzleCheck = false,
+                    Debug = false,
+                },
+                Loading = new LoadingDef {
+                    RateOfFire = 60,
+                    BarrelsPerShot = 1,
+                    TrajectilesPerBarrel = 1, 
+                    SkipBarrels = 0,
+                    ReloadTime = 200, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, 
+                    HeatPerShot = 0, 
+                    MaxHeat = 0, 
+                    Cooldown = 0, 
+                    HeatSinkRate = 0, 
+                    DegradeRof = false, 
+                    ShotsInBurst = 6,
+                    DelayAfterBurst = 0, 
+                    FireFull = false,
+                    GiveUpAfter = false,
+                    DeterministicSpin = false,
+                },
+                Audio = new HardPointAudioDef {
+                    PreFiringSound = "",
+                    FiringSound = "VXGaussShot", // WepShipGatlingShot
+                    FiringSoundPerShot = true,
+                    ReloadSound = "VXGaussReload",
+                    NoAmmoSound = "ArcWepShipGatlingNoAmmo",
+                    HardPointRotationSound = "WepTurretGatlingRotate",
+                    BarrelRotationSound = "WepShipGatlingRotation",
+                    FireSoundEndDelay = 120, // Measured in game ticks(6 = 100ms, 60 = 1 seconds, etc..).
+                },
+                Graphics = new HardPointParticleDef {
+
+					Effect1 = new ParticleDef //FIXTHIS
+                    {
+                        Name = "ExplosiveMuzzle", // Smoke_LargeGunShot
+                        Color = Color(red: 200, green: 60, blue: 60, alpha: 1),
+                        Offset = Vector(x: 0, y: 0, z: 0.25f),
+                        Extras = new ParticleOptionDef
+                        {
+                            Loop = false,
+                            Restart = true,
+                            MaxDistance = 500,
+                            MaxDuration = 1,
+                            Scale = .5f,
+                        },
+                    },
+                },
+            },
+            Ammos = new [] {
+                Nova88mmHEAT,HEShrapnel,
+            },
+             //Animations= Cerberus_Recoil
+            //Upgrades = UpgradeModules,
+            // Don't edit below this line
+        };
+		
 		WeaponDefinition ErisTurret => new WeaponDefinition {
             Assignments = new ModelAssignmentsDef
             {
@@ -6204,7 +6983,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "ErisTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -6213,7 +6992,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_1",
 					"muzzle_missile_2",
@@ -6251,12 +7030,12 @@ namespace WeaponThread {
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
                 TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
-				MaxTargetDistance = 3000,
+				MaxTargetDistance = 3500,
                 StopTrackingSpeed = 1000, // do not track target threats traveling faster than this speed
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Eris Turret", // name of weapon in terminal
+                PartName = "Eris Turret", // name of weapon in terminal
                 DeviateShotAngle = 1f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -6285,13 +7064,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -5,
                     MaxElevation = 30,
-                    FixedOffset = false,
-                    InventorySize = 3.24f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 2,
                     MuzzleCheck = false,
@@ -6299,12 +7090,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 60,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 6,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 600, 
-                    DelayUntilFire = 0, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, 
                     HeatPerShot = 2, 
                     MaxHeat = 100, 
                     Cooldown = 10, 
@@ -6312,8 +7103,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -6328,7 +7119,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "TestMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -6367,7 +7158,7 @@ namespace WeaponThread {
                         IconName = "None"
                     },
                 },
-                Barrels = new [] {
+                Muzzles = new [] {
 					"muzzle_missile_1",
                 },
                 Ejector = "",
@@ -6386,7 +7177,7 @@ namespace WeaponThread {
                 LockedSmartOnly = false, // Only fire at smart projectiles that are locked on to parent grid.
                 MinimumDiameter = 0, // 0 = unlimited, Minimum radius of threat to engage.
                 MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
-                MaxTargetDistance = 0, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
+                MaxTargetDistance = 5000, // 0 = unlimited, Maximum target distance that targets will be automatically shot at.
                 MinTargetDistance = 0, // 0 = unlimited, Min target distance that targets will be automatically shot at.
                 TopTargets = 0, // 0 = unlimited, max number of top targets to randomize between.
                 TopBlocks = 0, // 0 = unlimited, max number of blocks to randomize between
@@ -6394,7 +7185,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef 
             {
-                WeaponName = "Arbiter Missile Silo", // name of weapon in terminal
+                PartName = "Arbiter Missile Silo", // name of weapon in terminal
                 DeviateShotAngle = 0,
                 AimingTolerance = 0, // 0 - 180 firing angle
                 AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
@@ -6423,13 +7214,24 @@ namespace WeaponThread {
                     MaxAzimuth = 0,
                     MinElevation = 0,
                     MaxElevation = 0,
-                    FixedOffset = true,
-                    InventorySize = 1.3f,
-                    Offset = Vector(x: 0, y: 0, z: 0),
-                    Armor = IsWeapon, // IsWeapon, Passive, Active
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -6440,12 +7242,12 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef {
                     RateOfFire = 100,
-                    BarrelSpinRate = 0, 
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, 
                     SkipBarrels = 0,
                     ReloadTime = 600, 
-                    DelayUntilFire = 240, 
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 240, 
                     HeatPerShot = 0, 
                     MaxHeat = 0, 
                     Cooldown = 0, 
@@ -6453,8 +7255,8 @@ namespace WeaponThread {
                     DegradeRof = false, 
                     ShotsInBurst = 1,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -6469,7 +7271,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 2),
@@ -6500,7 +7302,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "SkybreakerTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -6509,7 +7311,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_1",
                 },
@@ -6534,7 +7336,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Skybreaker Orbital Defense Cannon", // name of weapon in terminal
+                PartName = "Skybreaker Orbital Defense Cannon", // name of weapon in terminal
                 DeviateShotAngle = 0f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Accurate, // Off, Basic, Accurate, Advanced
@@ -6563,13 +7365,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -20,
                     MaxElevation = 20,
-                    FixedOffset = false,
-                    InventorySize = 3.24f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 2,
                     MuzzleCheck = false,
@@ -6577,21 +7391,21 @@ namespace WeaponThread {
                 },
                 Loading = new LoadingDef
                 {
-                    RateOfFire = 600,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
+                    RateOfFire = 3600,
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    HeatPerShot = 100, //heat generated per shot
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    HeatPerShot = 5, //heat generated per shot
                     MaxHeat = 2000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .2f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
                     HeatSinkRate = 50, //amount of heat lost per second
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false,
+                    FireFull = false,
                 },
                 Audio = new HardPointAudioDef
                 {
@@ -6605,7 +7419,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef
                 {
-                    Barrel1 = new ParticleDef //FIXTHIS
+                    Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "", // Smoke_LargeGunShot
                         Color = Color(red: 40, green: 30, blue: 40, alpha: 1),
@@ -6619,7 +7433,7 @@ namespace WeaponThread {
                             Scale = 5f,
                         },
                     },
-                    Barrel2 = new ParticleDef //FIXTHIS
+                    Effect2 = new ParticleDef //FIXTHIS
                     {
                         Name = "", // Smoke_LargeGunShot
                         Color = Color(red: 5, green: 40, blue: 40, alpha: 1),
@@ -6650,7 +7464,7 @@ namespace WeaponThread {
                     new MountPointDef
                     {
                         SubtypeId = "KhopeshTurret",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -6659,7 +7473,7 @@ namespace WeaponThread {
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_1",
                 },
@@ -6684,7 +7498,7 @@ namespace WeaponThread {
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Khopesh Turret", // name of weapon in terminal
+                PartName = "Khopesh Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.35f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -6713,13 +7527,25 @@ namespace WeaponThread {
                     MaxAzimuth = 180,
                     MinElevation = -20,
                     MaxElevation = 70,
-                    FixedOffset = false,
-                    InventorySize = 1f,
-                    Offset = Vector(x: 0, y: 0, z:0),
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -6728,12 +7554,12 @@ namespace WeaponThread {
                 Loading = new LoadingDef
                 {
                     RateOfFire = 120,
-                    BarrelSpinRate = 0, // visual only, 0 disables and uses RateOfFire
                     BarrelsPerShot = 1,
                     TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
                     SkipBarrels = 0,
                     ReloadTime = 200, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
                     HeatPerShot = 10, //heat generated per shot
                     MaxHeat = 1000000, //max heat before weapon enters cooldown (70% of max heat)
                     Cooldown = .95f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
@@ -6741,7 +7567,7 @@ namespace WeaponThread {
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 4,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false,
+                    FireFull = false,
                 },
                 Audio = new HardPointAudioDef
                 {
@@ -6755,7 +7581,7 @@ namespace WeaponThread {
                 },
                 Graphics = new HardPointParticleDef
                 {
-                    Barrel1 = new ParticleDef
+                    Effect1 = new ParticleDef
                     {
                         Name = "AkiadFlash", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -6769,7 +7595,7 @@ namespace WeaponThread {
                             Scale = 1.0f,
                         },
                     },
-                    Barrel2 = new ParticleDef
+                    Effect2 = new ParticleDef
                     {
                         Name = "AkiadFlash",//Muzzle_Flash_Large
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -6790,6 +7616,164 @@ namespace WeaponThread {
                 Lancer50AP,
             },
              Animations = KhopeshTurret_Recoil
+            // Don't edit below this line
+        };
+		
+		WeaponDefinition JackelTurret => new WeaponDefinition {
+            Assignments = new ModelAssignmentsDef
+            {
+                MountPoints = new[]
+                {
+                    new MountPointDef
+                    {
+                        SubtypeId = "JackelTurretLG",
+                        MuzzlePartId = "MissileTurretBarrels",
+                        AzimuthPartId = "MissileTurretBase1",
+                        ElevationPartId = "MissileTurretBarrels",
+                        DurabilityMod = 1f,
+                        IconName = "None",
+                    },
+					new MountPointDef
+                    {
+                        SubtypeId = "JackelTurretSG",
+                        MuzzlePartId = "MissileTurretBarrels",
+                        AzimuthPartId = "MissileTurretBase1",
+                        ElevationPartId = "MissileTurretBarrels",
+                        DurabilityMod = 1f,
+                        IconName = "None",
+                    },
+
+                },
+                Muzzles = new []
+                {
+					"muzzle_missile_001",
+					"muzzle_missile_002",
+                },
+            },
+            Targeting = new TargetingDef
+            {
+                Threats = new[]
+                {
+                    Grids, Characters, Projectiles, Meteors, // threats percieved automatically without changing menu settings
+                },
+                SubSystems = new[]
+                {
+                    Thrust, Utility, Offense, Power, Production, Any, // subsystems the gun targets
+                },
+                ClosestFirst = false, // tries to pick closest targets first (blocks on grids, projectiles, etc...).
+                MinimumDiameter = 5, // 0 = unlimited, Minimum radius of threat to engage.
+                MaximumDiameter = 0, // 0 = unlimited, Maximum radius of threat to engage.
+                TopTargets = 4, // 0 = unlimited, max number of top targets to randomize between.
+                TopBlocks = 4, // 0 = unlimited, max number of blocks to randomize between
+				MaxTargetDistance = 2500,
+                StopTrackingSpeed = 1000, // do not track target threats traveling faster than this speed
+            },
+            HardPoint = new HardPointDef
+            {
+                PartName = "Jackel Turret", // name of weapon in terminal
+                DeviateShotAngle = 0.85f,
+                AimingTolerance = 1f, // 0 - 180 firing angle
+                AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
+                DelayCeaseFire = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+
+                Ui = new UiDef
+                {
+                    RateOfFire = true,
+                    DamageModifier = false,
+                    ToggleGuidance = false,
+                    EnableOverload = false,
+                },
+                Ai = new AiDef
+                {
+                    TrackTargets = true,
+                    TurretAttached = true,
+                    TurretController = true,
+                    PrimaryTracking = true,
+                    LockOnFocus = false,
+                },
+                HardWare = new HardwareDef
+                {
+                    RotateRate = 0.07f,
+                    ElevateRate = 0.07f,
+                    MinAzimuth = -180,
+                    MaxAzimuth = 180,
+                    MinElevation = -10,
+                    MaxElevation = 80,
+                    HomeAzimuth = 0, // Default resting rotation angle
+                    HomeElevation = 0, // Default resting elevation
+                    InventorySize = 1000f, // Inventory capacity in kL.
+                    IdlePower = 0.25f, // Constant base power draw in MW.
+                    FixedOffset = false, // Deprecated.
+                    Offset = Vector(x: 0, y: 0, z: 0), // Offsets the aiming/firing line of the weapon, in metres.
+                    Type = BlockWeapon, // What type of weapon this is; BlockWeapon, HandWeapon, Phantom 
+                    CriticalReaction = new CriticalDef
+                    {
+                        Enable = false, // Enables Warhead behaviour.
+                        DefaultArmedTimer = 120, // Sets default countdown duration.
+                        PreArmed = false, // Whether the warhead is armed by default when placed. Best left as false.
+                        TerminalControls = true, // Whether the warhead should have terminal controls for arming and detonation.
+                        AmmoRound = "AmmoType2", // Optional. If specified, the warhead will always use this ammo on detonation rather than the currently selected ammo.
+                    },
+                },
+                Other = new OtherDef
+                {
+                    ConstructPartCap = 0,
+                    RotateBarrelAxis = 0,
+                    EnergyPriority = 0,
+                    MuzzleCheck = false,
+                    Debug = false,
+                },
+                Loading = new LoadingDef {
+                    RateOfFire = 400,
+                    
+                    BarrelsPerShot = 1,
+                    TrajectilesPerBarrel = 1, // Number of Trajectiles per barrel per fire event.
+                    SkipBarrels = 0,
+                    ReloadTime = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    MagsToLoad = 1, // Number of physical magazines to consume on reload.
+					DelayUntilFire = 30, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    HeatPerShot = 60, //heat generated per shot
+                    MaxHeat = 4000, //max heat before weapon enters cooldown (70% of max heat)
+                    Cooldown = .16667f, //percent of max heat to be under to start firing again after overheat accepts .2-.95
+                    HeatSinkRate = 100, //amount of heat lost per second
+                    DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
+                    ShotsInBurst = 0,
+                    DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                },
+                Audio = new HardPointAudioDef {
+                    PreFiringSound = "",
+                    FiringSound = "RepeaterShot", // WepShipGatlingShot
+                    FiringSoundPerShot = true,
+                    ReloadSound = "",
+                    NoAmmoSound = "ArcWepShipGatlingNoAmmo",
+                    HardPointRotationSound = "WepTurretGatlingRotate",
+                    BarrelRotationSound = "WepShipGatlingRotation",
+                    FireSoundEndDelay = 120, // Measured in game ticks(6 = 100ms, 60 = 1 seconds, etc..).
+                },
+                Graphics = new HardPointParticleDef {
+
+					Effect1 = new ParticleDef //FIXTHIS
+                    {
+                        Name = "TestMuzzle", // Smoke_LargeGunShot
+                        Color = Color(red: 0, green: 10, blue: 200, alpha: 1),
+                        Offset = Vector(x: 0, y: 0, z: 0),
+                        Extras = new ParticleOptionDef
+                        {
+                            Loop = false,
+                            Restart = true,
+                            MaxDistance = 500,
+                            MaxDuration = 1,
+                            Scale = .3f,
+                        },
+                    },
+                },
+            },
+            Ammos = new [] {
+                RepeaterBolt,
+            },
+             //Animations= Arbalest_Emissive
+            //Upgrades = UpgradeModules,
             // Don't edit below this line
         };
 		

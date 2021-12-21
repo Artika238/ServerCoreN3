@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using ProtoBuf;
 using VRageMath;
 
@@ -432,8 +432,8 @@ namespace Scripts
                     [ProtoMember(12)] internal int DelayAfterBurst;
                     [ProtoMember(13)] internal bool DegradeRof;
                     [ProtoMember(14)] internal int BarrelSpinRate;
-                    [ProtoMember(15)] internal bool FireFullBurst;
-                    [ProtoMember(16)] internal bool GiveUpAfterBurst;
+                    [ProtoMember(15)] internal bool FireFull;
+                    [ProtoMember(16)] internal bool GiveUpAfter;
                     [ProtoMember(17)] internal bool DeterministicSpin;
                     [ProtoMember(18)] internal bool SpinFree;
                     [ProtoMember(19)] internal bool StayCharged;
@@ -1020,4 +1020,3 @@ namespace Scripts
         }
     }
 }
-

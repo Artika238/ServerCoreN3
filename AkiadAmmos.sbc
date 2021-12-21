@@ -184,7 +184,7 @@
 	  <!--  <Mass>45</Mass>
       <Volume>60</Volume> Baseline 200mm Missile-->
       <Mass>800</Mass> <!-- 79.875 per shell -->
-      <Volume>1300</Volume> <!-- 106.5 per shell -->
+      <Volume>1200</Volume> <!-- 106.5 per shell -->
       <Model>Models\Akiad\Small\CrusaderMissile.mwm</Model>
       <Capacity>1</Capacity>
       <AmmoDefinitionId Subtype="Energy" />
@@ -566,6 +566,27 @@
       <Volume>160</Volume> <!-- 106.5 per shell -->
       <Model>Models\Akiad\Small\CharybdisBomb.mwm</Model>
       <Capacity>71</Capacity>
+      <AmmoDefinitionId Subtype="Energy" />
+    </AmmoMagazine>
+	
+	<AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>VXGaussRound</SubtypeId>
+      </Id>
+      <DisplayName>VX Gauss Round</DisplayName>
+      <Icon>Textures\GUI\Icons\VXGaussRound.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+	  <!--  <Mass>45</Mass>
+      <Volume>60</Volume> Baseline 200mm Missile-->
+      <Mass>80</Mass> <!-- 79.875 per shell -->
+      <Volume>75</Volume> <!-- 106.5 per shell -->
+      <Model>Models\Akiad\Small\VXGaussRound.mwm</Model>
+      <Capacity>1</Capacity>
       <AmmoDefinitionId Subtype="Energy" />
     </AmmoMagazine>
 	

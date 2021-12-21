@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using static WeaponThread.WeaponStructure;
-using static WeaponThread.WeaponStructure.WeaponDefinition;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.PartAnimationSetDef.EventTriggers;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove.MoveType;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove;
-namespace WeaponThread
+using static Scripts.Structure.WeaponDefinition;
+using static Scripts.Structure.WeaponDefinition.AnimationDef;
+using static Scripts.Structure.WeaponDefinition.AnimationDef.PartAnimationSetDef.EventTriggers;
+using static Scripts.Structure.WeaponDefinition.AnimationDef.RelMove.MoveType;
+using static Scripts.Structure.WeaponDefinition.AnimationDef.RelMove;
+namespace Scripts
 { // Don't edit above this line
-    partial class Weapons
+    partial class Parts
     {
         private AnimationDef Lancer_Recoil => new AnimationDef
         {
@@ -105,7 +104,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 new PartAnimationSetDef()
                 {
@@ -314,7 +313,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 new PartAnimationSetDef()
                 {
@@ -368,7 +367,7 @@ namespace WeaponThread
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees
                                 },
                             },
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -439,7 +438,7 @@ namespace WeaponThread
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
                                 },
                             },
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -558,7 +557,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 new PartAnimationSetDef()
                 {
@@ -878,7 +877,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 new PartAnimationSetDef()
                 {
@@ -1307,7 +1306,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 new PartAnimationSetDef()
                 {
@@ -1401,7 +1400,7 @@ namespace WeaponThread
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees
                                 },
                             },
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                 new RelMove
@@ -1519,7 +1518,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				new PartAnimationSetDef()
@@ -1567,7 +1566,7 @@ namespace WeaponThread
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees
                                 },
                             },
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                 new RelMove
@@ -1686,7 +1685,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				
@@ -1832,7 +1831,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				
@@ -1978,7 +1977,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				
@@ -2311,7 +2310,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				
@@ -2648,7 +2647,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				
@@ -2794,7 +2793,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				
@@ -2940,7 +2939,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				
@@ -3552,7 +3551,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				
@@ -3566,7 +3565,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -3628,7 +3627,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -3690,7 +3689,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -3752,7 +3751,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -3814,7 +3813,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -3981,7 +3980,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				
@@ -3995,7 +3994,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -4057,7 +4056,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -4119,7 +4118,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -4181,7 +4180,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -4337,7 +4336,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				
@@ -4351,7 +4350,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -4413,7 +4412,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -4475,7 +4474,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -4537,7 +4536,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -4599,7 +4598,7 @@ namespace WeaponThread
                     Loop = Events(),
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
-						[OutOfAmmo] =
+						[NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -4766,7 +4765,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				
@@ -5348,7 +5347,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				new PartAnimationSetDef()
@@ -5660,7 +5659,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				new PartAnimationSetDef()
@@ -6095,7 +6094,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				new PartAnimationSetDef()
@@ -6781,7 +6780,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
 				new PartAnimationSetDef()
                 {
@@ -7534,7 +7533,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 new PartAnimationSetDef()
                 {
@@ -7547,7 +7546,7 @@ namespace WeaponThread
                     EventMoveSets = new Dictionary<PartAnimationSetDef.EventTriggers, RelMove[]>
                     {
                       
-                        [OutOfAmmo] =
+                        [NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
                                  
@@ -7717,7 +7716,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
 				new PartAnimationSetDef()
                 {
@@ -8007,7 +8006,7 @@ namespace WeaponThread
 		
 		private AnimationDef BoltCannon_Recoil => new AnimationDef
         {
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 new PartAnimationSetDef()
                 {
@@ -8143,7 +8142,7 @@ namespace WeaponThread
 					),
 
             },
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 new PartAnimationSetDef()
                 {
@@ -8205,7 +8204,7 @@ namespace WeaponThread
                     }
 					),
 			},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 new PartAnimationSetDef()
                 {
@@ -8280,7 +8279,7 @@ namespace WeaponThread
             //        }
 			//	),
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 new PartAnimationSetDef()
                 {
@@ -8444,7 +8443,7 @@ namespace WeaponThread
             //        }),
 
             //},
-            WeaponAnimationSets = new[]
+            AnimationSets = new[]
             {
                 
 				

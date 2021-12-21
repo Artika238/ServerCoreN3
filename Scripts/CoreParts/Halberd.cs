@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using static WeaponThread.WeaponStructure;
-using static WeaponThread.WeaponStructure.WeaponDefinition;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.PartAnimationSetDef.EventTriggers;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove.MoveType;
-using static WeaponThread.WeaponStructure.WeaponDefinition.AnimationDef.RelMove;
-namespace WeaponThread
+using static Scripts.Structure.WeaponDefinition;
+using static Scripts.Structure.WeaponDefinition.AnimationDef;
+using static Scripts.Structure.WeaponDefinition.AnimationDef.PartAnimationSetDef.EventTriggers;
+using static Scripts.Structure.WeaponDefinition.AnimationDef.RelMove.MoveType;
+using static Scripts.Structure.WeaponDefinition.AnimationDef.RelMove;
+namespace Scripts
 { // Don't edit above this line
-    partial class Weapons
+    partial class Parts
     {
 		public AnimationDef GetHalberdRightSpin()
         {
@@ -67,7 +66,7 @@ namespace WeaponThread
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
                                 },
                             },
-                        [OutOfAmmo] =
+                        [NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
 
@@ -120,7 +119,7 @@ namespace WeaponThread
 
             return new AnimationDef
             {
-                WeaponAnimationSets = animationSets.ToArray()
+                AnimationSets = animationSets.ToArray()
             };
         }
 		public AnimationDef GetHalberdLeftSpin()
@@ -181,7 +180,7 @@ namespace WeaponThread
                                     RotAroundCenter = Transformation(0, 0, 0), //degrees, rotates around CenterEmpty
                                 },
                             },
-                        [OutOfAmmo] =
+                        [NoMagsToLoad] =
                             new[] //Firing, Reloading, Overheated, Tracking, On, Off, BurstReload, OutOfAmmo, PreFire define a new[] for each
                             {
 
@@ -234,7 +233,7 @@ namespace WeaponThread
 
             return new AnimationDef
             {
-                WeaponAnimationSets = animationSets.ToArray()
+                AnimationSets = animationSets.ToArray()
             };
         }
     }	

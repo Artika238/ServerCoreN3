@@ -1,16 +1,16 @@
-using System.Collections.Generic;
-using static WeaponThread.WeaponStructure;
-using static WeaponThread.WeaponStructure.WeaponDefinition;
-using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.ModelAssignmentsDef;
-using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef.HardwareDef.ArmorState;
-using static WeaponThread.WeaponStructure.WeaponDefinition.HardPointDef.Prediction;
-using static WeaponThread.WeaponStructure.WeaponDefinition.TargetingDef.BlockTypes;
-using static WeaponThread.WeaponStructure.WeaponDefinition.TargetingDef.Threat;
+using static Scripts.Structure;
+using static Scripts.Structure.WeaponDefinition;
+using static Scripts.Structure.WeaponDefinition.ModelAssignmentsDef;
+using static Scripts.Structure.WeaponDefinition.HardPointDef;
+using static Scripts.Structure.WeaponDefinition.HardPointDef.Prediction;
+using static Scripts.Structure.WeaponDefinition.TargetingDef.BlockTypes;
+using static Scripts.Structure.WeaponDefinition.TargetingDef.Threat;
+using static Scripts.Structure.WeaponDefinition.HardPointDef.HardwareDef;
+using static Scripts.Structure.WeaponDefinition.HardPointDef.HardwareDef.HardwareType;
 
-namespace WeaponThread 
-{ 
-    partial class Weapons 
+namespace Scripts 
+{   
+    partial class Parts 
 	{
 		
 		WeaponDefinition LancerTurret45 => new WeaponDefinition {
@@ -21,7 +21,7 @@ namespace WeaponThread
                     new MountPointDef
                     {
                         SubtypeId = "LancerTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -31,7 +31,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LancerTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -41,7 +41,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargeLancerTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -51,7 +51,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargeLancerTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -60,7 +60,7 @@ namespace WeaponThread
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
 					"muzzle_missile_002",
@@ -88,7 +88,7 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Lancer Turret", // name of weapon in terminal
+                PartName = "Lancer Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -123,14 +123,14 @@ namespace WeaponThread
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
                     Debug = false,
                 },
                 Loading = new LoadingDef {
-                    RateOfFire = 600,
+                    RateOfFire = 300,
                     BarrelSpinRate = 0, 
                     BarrelsPerShot = 4,
                     TrajectilesPerBarrel = 1, 
@@ -144,8 +144,8 @@ namespace WeaponThread
                     DegradeRof = false, 
                     ShotsInBurst = 2,
                     DelayAfterBurst = 20, 
-                    FireFullBurst = true,
-                    GiveUpAfterBurst = false,
+                    FireFull = true,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -160,7 +160,7 @@ namespace WeaponThread
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "AkiadFlash", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -192,7 +192,7 @@ namespace WeaponThread
                     new MountPointDef
                     {
                         SubtypeId = "SaberTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -202,7 +202,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "SaberTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -212,7 +212,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargeSaberTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -222,7 +222,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargeSaberTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -231,7 +231,7 @@ namespace WeaponThread
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
 					"muzzle_missile_002",
@@ -257,7 +257,7 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Saber Turret", // name of weapon in terminal
+                PartName = "Saber Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -292,7 +292,7 @@ namespace WeaponThread
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -314,7 +314,7 @@ namespace WeaponThread
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 4,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false,
+                    FireFull = false,
                 },
                 Audio = new HardPointAudioDef
                 {
@@ -328,7 +328,7 @@ namespace WeaponThread
                 },
                 Graphics = new HardPointParticleDef
                 {
-                    Barrel1 = new ParticleDef
+                    Effect1 = new ParticleDef
                     {
                         Name = "AkiadFlash", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -342,7 +342,7 @@ namespace WeaponThread
                             Scale = 1.0f,
                         },
                     },
-                    Barrel2 = new ParticleDef
+                    Effect2 = new ParticleDef
                     {
                         Name = "AkiadFlash",//Muzzle_Flash_Large
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -375,7 +375,7 @@ namespace WeaponThread
                     new MountPointDef
                     {
                         SubtypeId = "GlaiveTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -385,7 +385,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "GlaiveTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -395,7 +395,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargeGlaiveTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -405,7 +405,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargeGlaiveTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -414,7 +414,7 @@ namespace WeaponThread
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
                 },
@@ -439,7 +439,7 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Glaive Heavy Turret", // name of weapon in terminal
+                PartName = "Glaive Heavy Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -474,7 +474,7 @@ namespace WeaponThread
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -495,8 +495,8 @@ namespace WeaponThread
                     DegradeRof = false, 
                     ShotsInBurst = 6,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -511,7 +511,7 @@ namespace WeaponThread
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "AkiadMuzzleFlash", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
@@ -544,7 +544,7 @@ namespace WeaponThread
                     new MountPointDef
                     {
                         SubtypeId = "KrakenTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -554,7 +554,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "KrakenTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -564,7 +564,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargeKrakenTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -574,7 +574,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargeKrakenTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -583,7 +583,7 @@ namespace WeaponThread
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_1",
 					"muzzle_missile_2",
@@ -612,7 +612,7 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Hydra ATGM (Turret)", // name of weapon in terminal
+                PartName = "Hydra ATGM (Turret)", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -647,7 +647,7 @@ namespace WeaponThread
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -668,8 +668,8 @@ namespace WeaponThread
                     DegradeRof = false, 
                     ShotsInBurst = 5,
                     DelayAfterBurst = 0, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -684,7 +684,7 @@ namespace WeaponThread
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "Smoke_LargeGunShot", // Smoke_LargeGunShot
                         Color = Color(red: 100, green: 60, blue: 10, alpha: 1),
@@ -717,7 +717,7 @@ namespace WeaponThread
                     new MountPointDef
                     {
                         SubtypeId = "ThresherTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -727,7 +727,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "ThresherTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -737,7 +737,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargeThresherTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -747,7 +747,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargeThresherTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -756,7 +756,7 @@ namespace WeaponThread
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
 					"muzzle_missile_002",
@@ -784,7 +784,7 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Thresher Dual Turret", // name of weapon in terminal
+                PartName = "Thresher Dual Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -817,7 +817,7 @@ namespace WeaponThread
                     Offset = Vector(x: 0, y: 0, z:0),
                 },
                 Other = new OtherDef {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -841,8 +841,8 @@ namespace WeaponThread
                     DegradeRof = false, 
                     ShotsInBurst = 4,
                     DelayAfterBurst = 240, 
-                    FireFullBurst = false,
-                    GiveUpAfterBurst = false,
+                    FireFull = false,
+                    GiveUpAfter = false,
                     DeterministicSpin = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
@@ -857,7 +857,7 @@ namespace WeaponThread
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef {
+					Effect1 = new ParticleDef {
                         Name = "AkiadMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 1, blue: 1, alpha: 1),
                         Offset = Vector(x: 0, y: 0, z: 0),
@@ -889,7 +889,7 @@ namespace WeaponThread
                     new MountPointDef
                     {
                         SubtypeId = "PlasmaRepeaterTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -899,7 +899,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "PlasmaRepeaterTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -909,7 +909,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargePlasmaRepeaterTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -919,7 +919,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargePlasmaRepeaterTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -928,7 +928,7 @@ namespace WeaponThread
                     },
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
 					"muzzle_missile_002",
@@ -954,7 +954,7 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Arbalest Plasma Repeater Turret", // name of weapon in terminal
+                PartName = "Arbalest Plasma Repeater Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -989,7 +989,7 @@ namespace WeaponThread
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -1010,7 +1010,7 @@ namespace WeaponThread
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "",
@@ -1024,7 +1024,7 @@ namespace WeaponThread
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "TestMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 0, green: 10, blue: 200, alpha: 1),
@@ -1057,7 +1057,7 @@ namespace WeaponThread
                     new MountPointDef
                     {
                         SubtypeId = "ReceptorTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -1067,7 +1067,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "ReceptorTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -1077,7 +1077,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargeReceptorTurret45",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -1087,7 +1087,7 @@ namespace WeaponThread
 					new MountPointDef
                     {
                         SubtypeId = "LargeReceptorTurret30",
-                        AimPartId = "None",
+                        
                         MuzzlePartId = "MissileTurretBarrels",
                         AzimuthPartId = "MissileTurretBase1",
                         ElevationPartId = "MissileTurretBarrels",
@@ -1097,7 +1097,7 @@ namespace WeaponThread
 					
 
                 },
-                Barrels = new []
+                Muzzles = new []
                 {
 					"muzzle_missile_001",
                 },
@@ -1122,7 +1122,7 @@ namespace WeaponThread
             },
             HardPoint = new HardPointDef
             {
-                WeaponName = "Receptor Plasma Launcher Turret", // name of weapon in terminal
+                PartName = "Receptor Plasma Launcher Turret", // name of weapon in terminal
                 DeviateShotAngle = 0.85f,
                 AimingTolerance = 1f, // 0 - 180 firing angle
                 AimLeadingPrediction = Advanced, // Off, Basic, Accurate, Advanced
@@ -1157,7 +1157,7 @@ namespace WeaponThread
                 },
                 Other = new OtherDef
                 {
-                    GridWeaponCap = 0,
+                    ConstructPartCap = 0,
                     RotateBarrelAxis = 0,
                     EnergyPriority = 0,
                     MuzzleCheck = false,
@@ -1178,7 +1178,7 @@ namespace WeaponThread
                     DegradeRof = false, // progressively lower rate of fire after 80% heat threshold (80% of max heat)
                     ShotsInBurst = 0,
                     DelayAfterBurst = 0, // Measured in game ticks (6 = 100ms, 60 = 1 seconds, etc..).
-                    FireFullBurst = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
+                    FireFull = false, // Spin barrel position will always be relative to initial / starting positions (spin will not be as smooth).
                 },
                 Audio = new HardPointAudioDef {
                     PreFiringSound = "CoilGunPrefire",
@@ -1192,7 +1192,7 @@ namespace WeaponThread
                 },
                 Graphics = new HardPointParticleDef {
 
-					Barrel1 = new ParticleDef //FIXTHIS
+					Effect1 = new ParticleDef //FIXTHIS
                     {
                         Name = "TestMuzzle", // Smoke_LargeGunShot
                         Color = Color(red: 1, green: 200, blue: 100, alpha: 1),
